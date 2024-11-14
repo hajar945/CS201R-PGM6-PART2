@@ -1,0 +1,5 @@
+Error on line 8: invalid numeric input
+Error on line 12: invalid numeric input
+Error on line 21: Invalid value in rating, length, or year
+Error on line 44: Invalid value in rating, length, or year
+Error on line 46: invalid numeric input
