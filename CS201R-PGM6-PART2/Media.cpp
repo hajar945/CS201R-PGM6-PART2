@@ -3,27 +3,21 @@
 #include "Media.h"
 #include <iomanip> // Required for setw()
 
-
 using namespace std;
 
-
-
+// Default constructor
 Media::Media() {
     this->type = ' ';
     this->title = " ";
     this->name = " ";
-    this->rating = -1;
+    this->rating = 0.0f;  // Default to 0.0 for float
     this->genre = " ";
-    this->length = -1;
-    this->yearReleased = -1;
-
+    this->length = 0;  // Default to 0 for length
+    this->yearReleased = 0;  // Default to 0 for year
 }
 
-
-
-// Parameterized constructor
 // Parameterized constructor with debug output
-Media::Media(char type, string title, string name, int rating, string genre, int length, int yearReleased) {
+Media::Media(char type, string title, string name, float rating, string genre, int length, int yearReleased) {
     this->type = type;
     this->title = title;
     this->name = name;
@@ -43,33 +37,31 @@ Media::Media(char type, string title, string name, int rating, string genre, int
         << setw(20) << yearReleased << endl;
 }
 
-
-// Definition for getGenre
-string Media::getGenre() {
-    return genre;  // Return the genre member variable
+// Getter methods
+string Media::getGenre() const {
+    return genre;
 }
 
-char Media::getType() {
+char Media::getType() const {
     return type;
 }
 
-string Media::getTitle() {
+string Media::getTitle() const {
     return title;
 }
 
-string Media::getName() {
+string Media::getName() const {
     return name;
 }
 
-int Media::getRating() {
-    return rating;
+float Media::getRating() const {
+    return rating;  // Return rating as float
 }
 
-int Media::getLength() {
+int Media::getLength() const {
     return length;
 }
 
-int Media::getYearReleased() {
+int Media::getYearReleased() const {
     return yearReleased;
 }
-

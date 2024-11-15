@@ -127,13 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Book.cpp" />
     <ClCompile Include="CS201R-PGM6-PART2.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Media.cpp" />
+    <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="Song.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Book.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Media.h" />
+    <ClInclude Include="Movie.h" />
+    <ClInclude Include="Song.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="mediaCommands.txt" />
