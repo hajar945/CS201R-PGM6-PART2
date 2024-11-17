@@ -80,6 +80,15 @@ void Movie::print(ostream& os, vector<Media*> mediaList) {
     os << endl;
 }
 
+// Override getOtherFields for Movie
+string Movie::getOtherFields() const {
+    string result = "Stars: ";
+    for (const string& star : stars) {
+        result += star + " ";
+    }
+    return result;
+}
+
 // Book class constructor definition
 Book::Book(char type, string title, string name, int rating, string genre, int length, int yearReleased, int weeksNYT)
     : Media(type, title, name, rating, genre, length, yearReleased), weeksNYT(weeksNYT) {}
@@ -89,7 +98,12 @@ void Book::setWeeks(int w) { weeksNYT = w; }
 
 void Book::print(ostream& os, vector<Media*> mediaList) {
     os << "Book: " << getTitle() << " by " << getName() << endl;
-    os << "Weeks on NYT bestseller: " << weeksNYT << endl;
+    os << "Weeks NYT: " << weeksNYT << endl;
+}
+
+// Override getOtherFields for Book
+string Book::getOtherFields() const {
+    return "Weeks  NYT: " + to_string(weeksNYT);
 }
 
 // Song class constructor definition
@@ -103,6 +117,11 @@ void Song::setTop40(bool t) { top40 = t; }
 void Song::print(ostream& os, vector<Media*> mediaList) {
     os << "Song: " << getTitle() << " by " << getName() << endl;
     os << (top40 ? "Top 40 hit" : "Not a Top 40 hit") << endl;
+}
+
+// Override getOtherFields for Song
+string Song::getOtherFields() const {
+    return top40 ? "Top 40 hit" : "Not a Top 40 hit";
 }
 
 Media* createMedia(char typeChar, const string& title, const string& creator, int rating,

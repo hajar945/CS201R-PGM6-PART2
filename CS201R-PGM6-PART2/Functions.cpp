@@ -352,22 +352,25 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
 
                 if (std::all_of(token.begin(), token.end(), ::isdigit)) {
                     int filterRating = std::stoi(token);  // Convert token to an integer
-                    outFile << "\n\nALL MEDIA WITH RATING: " << filterRating << ":\n";
-                    outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(6) << "Rating" << "\n";
-                    outFile << std::string(65, '-') << "\n";  // Print a line separator
+                    outFile << "\n\n MEDIA LIST WITH RATINGS >= " << filterRating << "\n";
+                    outFile << std::left << std::setw(5) << "#" << std::setw(40) << "TITLE"
+                        << std::setw(7) << "YEAR" << std::setw(10) << "RATING"
+                        << std::setw(25) << "GENRE" << "OTHER FIELDS\n";
+                    outFile << std::string(100, '-') << "\n";  // Print a line separator
 
                     for (size_t i = 0; i < mediaLib.size(); ++i) {
                         const auto& media = mediaLib[i];
                         std::cout << "Checking media: " << media->getTitle() << ", Rating: " << media->getRating() << std::endl;
 
-                        if (media->getRating() == filterRating) {
+                        if (media->getRating() >= filterRating) {
                             outFile << std::left << std::setw(5) << (i + 1)
                                 << std::setw(40) << media->getTitle()
-                                << std::setw(10) << media->getYearReleased()
-                                << std::setw(10) << media->getRating() << "\n";
+                                << std::setw(7) << media->getYearReleased()
+                                << std::setw(10) << media->getRating()
+                                << std::setw(25) << media->getGenre()
+                                << media->getOtherFields() << "\n";
                             found = true;
                         }
-
                     }
 
                     if (!found) {
@@ -379,13 +382,14 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 }
             }
             else {
-                outFile << "\n\nALL MEDIA:\n";
-                outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(5) << "Rating" << "\n";
-                outFile << std::string(60, '-') << "\n";  // Print a line separator
+                outFile << "\n\nMEDIA LIST:\n";
+                outFile << std::left << std::setw(5) << "#" << std::setw(40) << "TITLE"
+                    << std::setw(7) << "YEAR" << std::setw(10) << "RATING"
+                    << std::setw(25) << "GENRE" << "OTHER FIELDS\n";
+                outFile << std::string(120, '-') << "\n";  // Print a line separator
 
                 for (size_t i = 0; i < mediaLib.size(); ++i) {
                     const auto& media = mediaLib[i];
-
                     std::cout << "Media " << (i + 1) << ": "
                         << media->getTitle() << ", "
                         << media->getYearReleased() << ", "
@@ -393,12 +397,13 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
 
                     outFile << std::left << std::setw(5) << (i + 1)
                         << std::setw(40) << media->getTitle()
-                        << std::setw(10) << media->getYearReleased()
-                        << std::setw(10) << media->getRating() << "\n";
+                        << std::setw(7) << media->getYearReleased()
+                        << std::setw(10) << media->getRating()
+                        << std::setw(25) << media->getGenre()
+                        << media->getOtherFields() << "\n";
                 }
             }
         }
-
         if (command == "M") {
             std::string token;
             if (std::getline(commandStream, token, ',')) {

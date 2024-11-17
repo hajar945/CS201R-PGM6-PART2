@@ -38,6 +38,9 @@ public:
 
     // Pure virtual function
     virtual void print(ostream&, vector<Media*>) = 0;
+
+    // Pure virtual function to get additional fields for each media type
+    virtual string getOtherFields() const = 0;
 };
 
 // Movie class
@@ -50,6 +53,7 @@ public:
     vector<string> getStars();
     void setStars(vector<string> s);
     void print(ostream& os, vector<Media*> mediaList) override;
+    string getOtherFields() const override; // Override to provide additional fields for Movie
 };
 
 // Book class
@@ -62,6 +66,7 @@ public:
     int getWeeks();
     void setWeeks(int w);
     void print(ostream& os, vector<Media*> mediaList) override;
+    string getOtherFields() const override; // Override to provide additional fields for Book
 };
 
 // Song class
@@ -74,6 +79,7 @@ public:
     bool getTop40() const;
     void setTop40(bool t);
     void print(ostream& os, vector<Media*> mediaList) override;
+    string getOtherFields() const override; // Override to provide additional fields for Song
 };
 
 // Declaration of createMedia function
