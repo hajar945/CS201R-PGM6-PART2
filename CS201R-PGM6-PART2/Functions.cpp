@@ -729,6 +729,112 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
             }
         }
 
+        if (command == "L") {
+            std::string movieTitle;
+            if (std::getline(commandStream, movieTitle)) {
+                std::cout << "Searching for stars of the movie: " << movieTitle << std::endl;
+
+                bool found = false; // To track if the movie is found
+                for (const auto& media : mediaLib) {
+                    if (media->getType() == 'M' && media->getTitle() == movieTitle) {
+                        // Cast media to Movie to access getStars()
+                        Movie* movie = static_cast<Movie*>(media);
+
+                        outFile << "\n\nTHE STARS OF THE MOVIE " << movie->getTitle() << " ARE:\n";
+                        for (const auto& star : movie->getStars()) {
+                            outFile << star << "\n";
+                        }
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    outFile << "Error: Movie titled '" << movieTitle << "' not found in the library.\n";
+                }
+            }
+            else {
+                outFile << "Error: Missing movie title for command L.\n";
+            }
+        }
+
+        if (command == "F") {
+            std::string starName;
+            if (std::getline(commandStream, starName)) {
+                std::cout << "Searching for movies featuring: " << starName << std::endl;
+
+                bool found = false; // To track if the star is found in any movie
+                outFile << starName << " appears in the following movie(s):\n";
+
+                for (const auto& media : mediaLib) {
+                    if (media->getType() == 'M') {
+                        // Cast media to Movie to access getStars()
+                        Movie* movie = static_cast<Movie*>(media);
+                        const auto& stars = movie->getStars();
+
+                        // Check if the star is in the list of stars
+                        if (std::find(stars.begin(), stars.end(), starName) != stars.end()) {
+                            outFile << movie->getTitle() << "\n";
+                            found = true;
+                        }
+                    }
+                }
+
+                if (!found) {
+                    outFile << "No movies found featuring '" << starName << "'.\n";
+                }
+                outFile << "\n"; // Add spacing for better readability
+            }
+            else {
+                outFile << "Error: Missing star name for command F.\n";
+            }
+        }
+
+        if (command == "K") {
+            std::string name;  // Name to search for
+            if (std::getline(commandStream, name)) {
+                std::cout << "Searching for media containing: '" << name << "'\n";
+
+                bool found = false; // To track if any media matches the name
+
+                // Check for media in mediaLib that matches the name
+                for (const auto& media : mediaLib) {
+                    // Assume we are looking for stars, directors, or artists
+                    if (media->getType() == 'M') {  // If it's a movie
+                        Movie* movie = static_cast<Movie*>(media);
+
+                        // Check if any star or artist in the movie matches the name
+                        for (const auto& star : movie->getStars()) {
+                            if (star == name) {
+                                if (!found) {
+                                    outFile << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+                                    outFile << "YOUR LIST CONTAINING " << name << "\n\n";
+                                    outFile << "#           TITLE                           YEAR    RATING      GENRE                      OTHER FIELDS\n";
+                                }
+                                outFile  << "  " << movie->getTitle() << "    " << movie->getYearReleased() << "    "
+                                    << movie->getRating() << "      " << movie->getGenre() << "          Stars: ";
+                                for (const auto& s : movie->getStars()) {
+                                    outFile << s << " ";
+                                }
+                                outFile << "\n";
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (!found) {
+                    outFile << "Error: No media containing the name '" << name << "' found in the library.\n";
+                }
+            }
+            else {
+                outFile << "Error: Missing name for command K.\n";
+            }
+        }
+
+
+
         // Process "N" command (Add new media)
         else if (command == "N") {
             std::string token;

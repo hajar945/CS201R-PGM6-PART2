@@ -333,6 +333,37 @@ SONG LIST FOR GENRE: none
 No songs found with genre none.
 
 
+THE STARS OF THE MOVIE Hidden Figures ARE:
+Error: Movie titled 'Lost' not found in the library.
+
+
+THE STARS OF THE MOVIE Dune ARE:
+Timothee Chalamet
+Zendaya
+Octavia Spencer appears in the following movie(s):
+No movies found featuring 'Octavia Spencer'.
+
+Harrison Ford appears in the following movie(s):
+Raiders of the Lost Ark
+Star Wars IV
+Blade Runner 2049
+
+Victor Lee appears in the following movie(s):
+No movies found featuring 'Victor Lee'.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+YOUR LIST CONTAINING Harrison Ford
+
+#           TITLE                           YEAR    RATING      GENRE                      OTHER FIELDS
+  Raiders of the Lost Ark    1981    6      Action          Stars: Harrison Ford Karen Allen 
+  Star Wars IV    1977    6      Action          Stars: Mark Hamill Carrie Fisher Harrison Ford Alec Guiness 
+  Blade Runner 2049    2017    9      Sci-Fi          Stars: Ryan Gosling Harrison Ford 
+Error: No media containing the name 'Steven Spielberg' found in the library.
+Error: No media containing the name 'Bee Gees' found in the library.
+Error: No media containing the name 'Beatles' found in the library.
+
+
 MEDIA LIST:
 #    TITLE                                   YEAR   RATING    GENRE                    OTHER FIELDS
 ------------------------------------------------------------------------------------------------------------------------
