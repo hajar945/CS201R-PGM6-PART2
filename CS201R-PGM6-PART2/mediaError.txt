@@ -1,48 +1,8 @@
-Error on line 1: Invalid numeric data
-Error on line 1: Invalid data, skipping line
-Error on line 2: Invalid numeric data
-Error on line 2: Invalid data, skipping line
-Error on line 3: Invalid numeric data
-Error on line 3: Invalid data, skipping line
-Error on line 4: Invalid numeric data
-Error on line 4: Invalid data, skipping line
-Error on line 5: Invalid numeric data
-Error on line 5: Invalid data, skipping line
-Error on line 6: Invalid numeric data
-Error on line 6: Invalid data, skipping line
-Error on line 7: Invalid numeric data
-Error on line 7: Invalid data, skipping line
 Error on line 8: Invalid numeric data
 Error on line 8: Invalid data, skipping line
-Error on line 9: Invalid numeric data
-Error on line 9: Invalid data, skipping line
 Error on line 12: Invalid numeric data
 Error on line 12: Invalid data, skipping line
-Error on line 18: Invalid numeric data
-Error on line 18: Invalid data, skipping line
-Error on line 19: Invalid numeric data
-Error on line 19: Invalid data, skipping line
-Error on line 20: Invalid numeric data
-Error on line 20: Invalid data, skipping line
-Error on line 21: Invalid numeric data
-Error on line 21: Invalid data, skipping line
-Error on line 22: Invalid numeric data
-Error on line 22: Invalid data, skipping line
-Error on line 23: Invalid numeric data
-Error on line 23: Invalid data, skipping line
-Error on line 24: Invalid numeric data
-Error on line 24: Invalid data, skipping line
-Error on line 25: Invalid numeric data
-Error on line 25: Invalid data, skipping line
-Error on line 26: Invalid numeric data
-Error on line 26: Invalid data, skipping line
-Error on line 27: Invalid numeric data
-Error on line 27: Invalid data, skipping line
-Error on line 28: Invalid numeric data
-Error on line 28: Invalid data, skipping line
-Error on line 29: Invalid numeric data
-Error on line 29: Invalid data, skipping line
-Error on line 30: Invalid numeric data
-Error on line 30: Invalid data, skipping line
 Error on line 46: Invalid numeric data
 Error on line 46: Invalid data, skipping line
+Error on line 68: Invalid numeric data
+Error on line 68: Invalid data, skipping line

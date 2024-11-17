@@ -70,8 +70,13 @@ private:
     bool top40;
 
 public:
-    Song(char type, string title, string keyName, int rating, string genre, int length, int yearReleased, bool top40);
-    bool getTop40();
+    Song(char type, string title, string creator, int rating, string genre, int length, int yearReleased, bool top40);
+    bool getTop40() const;
     void setTop40(bool t);
     void print(ostream& os, vector<Media*> mediaList) override;
 };
+
+// Declaration of createMedia function
+Media* createMedia(char typeChar, const string& title, const string& creator, int rating,
+    const string& genre, int length, int year, const vector<string>& stars,
+    int weeksNYT, bool top40);

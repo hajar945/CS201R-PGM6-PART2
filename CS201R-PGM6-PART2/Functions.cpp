@@ -33,8 +33,6 @@ bool checkIfDigits(const string& str) {
     }
     return true;
 }
-
-// Reads and validates the media list from the file
 int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
     string line;
     int lineNum = 0;
@@ -48,16 +46,14 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
         lineNum++;
         std::cout << "Processing line " << lineNum << ": " << line << std::endl;
 
-        // Skip empty lines
         if (line.empty()) continue;
 
         istringstream ss(line);
         string typeStr, title, creator, ratingStr, genre, lengthStr, yearStr, starsStr, weeksNYTStr, top40Str;
-        int rating = -1, length = -1, year = -1, stars = 0, weeksNYT = 0, top40 = 0;
 
-        // Parse fields
+        // Parse fields carefully
         getline(ss, typeStr, ',');
-        if (typeStr == "Q") break;  // Quit condition
+        if (typeStr == "Q") break; // Quit marker
 
         getline(ss, title, ',');
         getline(ss, creator, ',');
@@ -67,56 +63,96 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
         getline(ss, yearStr, ',');
         getline(ss, starsStr, ',');
         getline(ss, weeksNYTStr, ',');
-        getline(ss, top40Str, ',');
 
-        // Validation logic
+        // The last field (top40Str) should be the final part of the line
+        // Since the top40 is the last field, we have to handle it separately
+        size_t lastCommaPos = line.find_last_of(',');
+        if (lastCommaPos != string::npos) {
+            top40Str = line.substr(lastCommaPos + 1);
+        }
+
+        // Trim fields
+        auto trim = [](string& s) { s.erase(0, s.find_first_not_of(" \t\r\n")); s.erase(s.find_last_not_of(" \t\r\n") + 1); };
+        trim(typeStr); trim(title); trim(creator); trim(ratingStr);
+        trim(genre); trim(lengthStr); trim(yearStr); trim(starsStr);
+        trim(weeksNYTStr); trim(top40Str);
+
+        // Debug - check trimmed top40 value
+        std::cout << "Debug - Trimmed Top40 value: '" << top40Str << "'" << std::endl;
+
+        // Validation
         bool valid = true;
-
-        try {
-            rating = stoi(ratingStr);
-            length = stoi(lengthStr);
-            year = stoi(yearStr);
-            weeksNYT = !weeksNYTStr.empty() ? stoi(weeksNYTStr) : 0;
-            top40 = !top40Str.empty() ? stoi(top40Str) : 0;
-        }
-        catch (const exception& e) {
-            valid = false;
-            outFile << "Error on line " << lineNum << ": Invalid numeric data\n";
-        }
+        int rating = -1, length = -1, year = -1, weeksNYT = 0, top40 = 0;
 
         if (typeStr.empty() || title.empty() || creator.empty() || genre.empty()) {
             valid = false;
             outFile << "Error on line " << lineNum << ": Missing required fields\n";
         }
 
-        // Parse stars into a vector
-        vector<string> starsVec;
-        if (!starsStr.empty()) {
-            istringstream starStream(starsStr);
-            string star;
-            while (getline(starStream, star, ',')) {
-                starsVec.push_back(star);
+        if (!ratingStr.empty() && !isdigit(ratingStr[0])) valid = false;
+        if (!lengthStr.empty() && !isdigit(lengthStr[0])) valid = false;
+        if (!yearStr.empty() && !isdigit(yearStr[0])) valid = false;
+
+        try {
+            if (!ratingStr.empty()) rating = stoi(ratingStr);
+            if (!lengthStr.empty()) length = stoi(lengthStr);
+            if (!yearStr.empty()) year = stoi(yearStr);
+            if (typeStr == "B" && !weeksNYTStr.empty()) weeksNYT = stoi(weeksNYTStr);
+            if (typeStr == "S" && !top40Str.empty()) {
+                // Convert top40Str to integer
+                top40 = stoi(top40Str);
+            }
+        }
+        catch (const exception&) {
+            valid = false;
+            outFile << "Error on line " << lineNum << ": Invalid numeric data\n";
+        }
+
+        if (!valid) {
+            outFile << "Error on line " << lineNum << ": Invalid data, skipping line\n";
+            continue;
+        }
+
+        // Debug output for Top 40
+        if (typeStr == "S") {  // Only for Songs (S)
+            std::cout << "Debug - Song: " << title << ", Top40 Value: " << top40 << std::endl;
+            if (top40 == 0) {
+                std::cout << "Debug - Song is NOT a Top 40!" << std::endl;
+            }
+            else if (top40 == 1) {
+                std::cout << "Debug - Song is a Top 40!" << std::endl;
+            }
+            else {
+                std::cout << "Debug - Invalid Top40 value for song: " << title << std::endl;
             }
         }
 
-        // Create and add media item if valid
-        if (valid) {
-            Media* mediaItem = createMedia(typeStr[0], title, creator, rating, genre, length, year, starsVec, weeksNYT, top40);
-            if (mediaItem) {
-                mediaLib.push_back(mediaItem);
-                std::cout << "Added media item: " << title << std::endl;
-            }
-            else {
-                outFile << "Error on line " << lineNum << ": Failed to create media item\n";
+        // Parse stars for movies
+        vector<string> starsVec;
+        if (typeStr == "M" && !starsStr.empty()) {
+            istringstream starStream(starsStr);
+            string star;
+            while (getline(starStream, star, ',')) {
+                trim(star);
+                if (!star.empty()) starsVec.push_back(star);
             }
         }
+
+        // Create media item
+        Media* mediaItem = createMedia(typeStr[0], title, creator, rating, genre, length, year, starsVec, weeksNYT, top40);
+        if (mediaItem) {
+            mediaLib.push_back(mediaItem);
+            std::cout << "Added media item: " << title << std::endl;
+        }
         else {
-            outFile << "Error on line " << lineNum << ": Invalid data, skipping line\n";
+            outFile << "Error on line " << lineNum << ": Failed to create media item\n";
         }
     }
 
     return mediaLib.size();
 }
+
+
 
 // Processes the file to read media list
 void processFile(const string& filename, ostream& outFile, vector<Media*>& mediaLib) {
@@ -232,7 +268,7 @@ void addNewMedia(ostream& outFile, const string& type, const string& title, cons
 
     // Validate input data for the resolved mediaType
     if ((mediaType == 'M' || mediaType == 'B' || mediaType == 'S') &&
-        rating > 0 && rating <= 10 && length > 0 && year >= 1000 && year <= 2024) {
+        rating > 0 && rating <= 10 && length > 0 && year >= 1920 && year <= 2024) {
 
         // Create a new media item based on the type
         Media* mediaItem = nullptr;
@@ -262,10 +298,10 @@ void addNewMedia(ostream& outFile, const string& type, const string& title, cons
         if (length <= 0) {
             cerr << "Error: Invalid length for media item '" << title << "'\n";
         }
-        if (year < 1000 || year > 2024) {
+        if (year < 1920 || year > 2024) {
             cerr << "Error: Invalid year for media item '" << title << "'\n";
         }
-        if (mediaType != 'M' && mediaType != 'B' && mediaType != 'S') {
+        if (mediaType != 'M' && mediaType != 'B' && mediaType != 'S' && mediaType != 'N') {
             cerr << "Error: Unrecognized media type for '" << title << "'\n";
         }
     }
@@ -529,88 +565,120 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
 
 
         }
-        if (command == "S") {
+        // Process "S" command (Filter songs by rating or genre, or list all songs)
+        else if (command == "S") {
             std::string token;
+
+            // Extract the filter (rating or genre)
             if (std::getline(commandStream, token, ',')) {
                 if (std::all_of(token.begin(), token.end(), ::isdigit)) {
+                    // Handle numeric rating filter
                     int filterRating = std::stoi(token);
                     if (filterRating >= 1 && filterRating <= 10) {
-                        outFile << "\n\SONG LIST WITH RATING >= " << filterRating << ":\n";
-                        outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(5) << "Rating" << "\n";
-                        outFile << std::string(60, '-') << "\n";  // Print a line separator
+                        outFile << "\nSONG LIST WITH RATING >= " << filterRating << ":\n";
+                        outFile << std::left << std::setw(5) << "#"
+                            << std::setw(40) << "Title"
+                            << std::setw(7) << "Year"
+                            << std::setw(20) << "Rating"
+                            << std::setw(25) << "Genre"
+                            << "Top 40\n";
+                        outFile << std::string(115, '-') << "\n";
 
                         bool found = false;
                         for (size_t i = 0; i < mediaLib.size(); ++i) {
                             const auto& media = mediaLib[i];
                             if (media->getType() == 'S' && media->getRating() >= filterRating) {
-                                outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
-                                    << std::setw(40) << media->getTitle()
-                                    << std::setw(10) << media->getYearReleased()
-                                    << std::setw(10) << media->getRating()
-                                    << "\n";
-                                found = true;
+                                Song* song = dynamic_cast<Song*>(media);  // Cast to Song
+                                if (song) {  // Ensure it's a Song
+                                    outFile << std::left << std::setw(5) << (i + 1)
+                                        << std::setw(40) << media->getTitle()
+                                        << std::setw(10) << media->getYearReleased()
+                                        << std::setw(15) << media->getRating()
+                                        << std::setw(25) << media->getGenre()
+                                        << (song->getTop40() ? "Top 40" : "Not Top 40") << "\n";
+                                    found = true;
+                                }
                             }
                         }
                         if (!found) {
                             outFile << "No songs found with rating >= " << filterRating << ".\n";
                         }
-
                     }
                     else {
                         cerr << "Invalid rating for command S: " << token << " (must be between 1 and 10)\n";
                     }
                 }
                 else {
-                    // Treat token as a genre if it’s not numeric
-                    outFile << "\n\SONG LIST FOR GENRE: " << token << "\n";
-                    outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(5) << "Rating" << "\n";
-                    outFile << std::string(60, '-') << "\n";  // Print a line separator
+                    // Handle genre-based filter
+                    outFile << "\nSONG LIST FOR GENRE: " << token << "\n";
+                    outFile << std::left << std::setw(5) << "#"
+                        << std::setw(40) << "Title"
+                        << std::setw(7) << "Year"
+                        << std::setw(20) << "Rating"
+                        << std::setw(25) << "Genre"
+                        << "Top 40\n";
+                    outFile << std::string(80, '-') << "\n";
 
                     bool found = false;
                     for (size_t i = 0; i < mediaLib.size(); ++i) {
                         const auto& media = mediaLib[i];
+                        Song* song = dynamic_cast<Song*>(media);  // Cast to Song
                         if (media->getType() == 'S' && media->getGenre() == token) {
-                            outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
-                                << std::setw(40) << media->getTitle()
-                                << std::setw(10) << media->getYearReleased()
-                                << std::setw(10) << media->getRating()
-                                << "\n";
-                            found = true;
+                            if (song) {  // Ensure it's a Song
+                                outFile << std::left << std::setw(5) << (i + 1)
+                                    << std::setw(40) << media->getTitle()
+                                    << std::setw(10) << media->getYearReleased()
+                                    << std::setw(15) << media->getRating()
+                                    << std::setw(25) << media->getGenre()
+                                    << (song->getTop40() ? "Top 40" : "Not Top 40") << "\n";
+                                found = true;
+                            }
                         }
                     }
                     if (!found) {
                         outFile << "No songs found with genre " << token << ".\n";
                     }
                 }
-
             }
             else {
+                // Handle case with no filter (list all songs)
                 outFile << "\n\nALL SONGS:\n";
-                outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(5) << "Rating" << "\n";
-                outFile << std::string(60, '-') << "\n";  // Print a line separator
+                outFile << std::left << std::setw(5) << "#"
+                    << std::setw(40) << "Title"
+                    << std::setw(7) << "Year"
+                    << std::setw(20) << "Rating"
+                    << std::setw(15) << "Genre"
+                    << "Top 40\n";
+                outFile << std::string(80, '-') << "\n";
+
                 bool found = false;
                 for (size_t i = 0; i < mediaLib.size(); ++i) {
                     const auto& media = mediaLib[i];
                     if (media->getType() == 'S') {
-                        outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
-                            << std::setw(40) << media->getTitle()
-                            << std::setw(10) << media->getYearReleased()
-                            << std::setw(10) << media->getRating()
-                            << "\n";
-                        found = true;
+                        Song* song = dynamic_cast<Song*>(media);  // Cast to Song
+                        if (song) {  // Ensure it's a Song
+                            outFile << std::left << std::setw(5) << (i + 1)
+                                << std::setw(40) << media->getTitle()
+                                << std::setw(10) << media->getYearReleased()
+                                << std::setw(15) << media->getRating()
+                                << std::setw(25) << media->getGenre()
+                                << (song->getTop40() ? "Top 40" : "Not Top 40") << "\n";
+                            found = true;
+                        }
                     }
                 }
                 if (!found) {
                     outFile << "No songs found.\n";
                 }
             }
-
-
         }
 
+        // Process "N" command (Add new media)
         else if (command == "N") {
             std::string token;
             std::getline(commandStream, token, ',');
+
+            // Extract data for the new media item
             string typeStr, title, creator, ratingStr, genre, lengthStr, yearStr;
             int rating, length, year;
 
@@ -621,23 +689,23 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
             getline(commandStream, lengthStr, ',');
             getline(commandStream, yearStr, ',');
 
-
             try {
-                rating = stoi(ratingStr);
-                length = stoi(lengthStr);
-                year = stoi(yearStr);
+                rating = std::stoi(ratingStr);
+                length = std::stoi(lengthStr);
+                year = std::stoi(yearStr);
             }
-            catch (const invalid_argument&) {
+            catch (const std::invalid_argument&) {
                 cerr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
                     << lengthStr << " " << yearStr << ": Invalid numeric value\n";
                 continue;
             }
-            catch (const out_of_range&) {
+            catch (const std::out_of_range&) {
                 cerr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
                     << lengthStr << " " << yearStr << ": Numeric value out of range\n";
                 continue;
             }
 
+            // Validate input values
             if (rating <= 0 || rating > 10 || length <= 0 || year < 1000 || year > 2024) {
                 cerr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
                     << lengthStr << " " << yearStr << ": Invalid value in rating, length, or year\n";
@@ -647,22 +715,14 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
             int weeksNYT = 0;  // Initialize weeksNYT
             int top40 = 0;     // Initialize top40
 
-            // addNewMedia(outFile, token, title, creator, rating, genre, length, year, mediaLib);  // Print total counts for each type
             addNewMedia(outFile, token, title, creator, rating, genre, length, year, mediaLib, stars, weeksNYT, top40);
-
-
-
-            /*void addNewMedia(ostream& outFile, const string& type, const string& title, const string& name,
-                int rating, const string& genre, int length, int year, vector<Media*>& mediaLib);*/
         }
 
-
-        else if (command == "T") {  // Part 1T
-            outFile << "\n\nYOUR MEDIA LIBRARY " << "\n";
-
+        // Process "T" command (Print totals for media types)
+        else if (command == "T") {
+            outFile << "\n\nYOUR MEDIA LIBRARY\n";
             printTotals(outFile, mediaLib);  // Print total counts for each type
-
-
+        
         }
 
     }

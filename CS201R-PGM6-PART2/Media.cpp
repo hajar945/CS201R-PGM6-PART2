@@ -22,29 +22,28 @@ char Media::getType() {
 }
 
 string Media::getTitle() {
-    return title;  // This should return the title of the media item
+    return title;
 }
 
 string Media::getName() {
-    return name;  // This should return the name of the creator
+    return name;
 }
 
 int Media::getRating() {
-    return rating;  // This should return the rating of the media item
+    return rating;
 }
 
 string Media::getGenre() {
-    return genre;  // This should return the genre of the media
+    return genre;
 }
 
 int Media::getLength() {
-    return length;  // This should return the length of the media item
+    return length;
 }
 
 int Media::getYearReleased() {
-    return yearReleased;  // This should return the year the media was released
+    return yearReleased;
 }
-
 
 Media::Media(char type, string title, string name, int rating, string genre, int length, int yearReleased) {
     this->type = type;
@@ -66,13 +65,9 @@ Media::Media(char type, string title, string name, int rating, string genre, int
         << setw(20) << yearReleased << endl;
 }
 
-// Member function implementations for the Movie, Book, and Song classes
-
 // Movie class constructor definition
 Movie::Movie(char type, string title, string name, int rating, string genre, int length, int yearReleased, vector<string> stars)
     : Media(type, title, name, rating, genre, length, yearReleased), stars(stars) {}
-
-
 
 vector<string> Movie::getStars() { return stars; }
 void Movie::setStars(vector<string> s) { stars = s; }
@@ -98,10 +93,11 @@ void Book::print(ostream& os, vector<Media*> mediaList) {
 }
 
 // Song class constructor definition
-Song::Song(char type, string title, string keyName, int rating, string genre, int length, int yearReleased, bool top40)
-    : Media(type, title, keyName, rating, genre, length, yearReleased), top40(top40) {}
+Song::Song(char type, string title, string creator, int rating, string genre, int length, int yearReleased, bool top40)
+    : Media(type, title, creator, rating, genre, length, yearReleased), top40(top40) {}
 
-bool Song::getTop40() { return top40; }
+bool Song::getTop40() const { return top40; }
+
 void Song::setTop40(bool t) { top40 = t; }
 
 void Song::print(ostream& os, vector<Media*> mediaList) {
@@ -109,10 +105,9 @@ void Song::print(ostream& os, vector<Media*> mediaList) {
     os << (top40 ? "Top 40 hit" : "Not a Top 40 hit") << endl;
 }
 
-
 Media* createMedia(char typeChar, const string& title, const string& creator, int rating,
     const string& genre, int length, int year, const vector<string>& stars,
-    int weeksNYT, int top40) {
+    int weeksNYT, bool top40) {
     if (typeChar == 'M') {
         return new Movie(typeChar, title, creator, rating, genre, length, year, stars);
     }

@@ -49,6 +49,7 @@ void listAllMedia(ofstream& outFile, const vector<Media*>& myLib, int rating = -
 void listMediaByType(ofstream& outFile, const vector<Media*>& myLib, char type, int rating = -1, const string& genre = "");
 void printTotalCounts(ofstream& outFile, const vector<Media*>& myLib);
 //void addNewMedia(const string& data, vector<Media*>& myLib, ofstream& outErr);
+
 Media* createMedia(char typeChar, const string& title, const string& creator, int rating,
     const string& genre, int length, int year, const vector<string>& stars,
-    int weeksNYT, int top40);
+    int weeksNYT, bool top40);
