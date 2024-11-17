@@ -1,7 +1,8 @@
 Error on line 8: Invalid numeric data
 Error on line 8: Invalid data, skipping line
-Error on line 12: Invalid numeric data
-Error on line 12: Invalid data, skipping line
+Error on line 12: Missing stars information after year
+Error on line 41: Invalid numeric data
+Error on line 41: Invalid data, skipping line
 Error on line 46: Invalid numeric data
 Error on line 46: Invalid data, skipping line
 Error on line 68: Invalid numeric data

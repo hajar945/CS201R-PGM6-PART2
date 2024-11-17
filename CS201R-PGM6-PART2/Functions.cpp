@@ -61,14 +61,33 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
         getline(ss, genre, ',');
         getline(ss, lengthStr, ',');
         getline(ss, yearStr, ',');
-        getline(ss, starsStr, ',');
-        getline(ss, weeksNYTStr, ',');
 
-        // The last field (top40Str) should be the final part of the line
-        // Since the top40 is the last field, we have to handle it separately
-        size_t lastCommaPos = line.find_last_of(',');
-        if (lastCommaPos != string::npos) {
-            top40Str = line.substr(lastCommaPos + 1);
+        // Ensure there's data after the year field
+        if (ss.eof()) {
+            outFile << "Error on line " << lineNum << ": Missing stars information after year\n";
+            continue;  // Skip the line if there's no stars information
+        }
+
+        // Everything after the year is considered part of the stars
+        starsStr = line.substr(ss.tellg());  // Take everything after the year
+        if (!starsStr.empty() && starsStr[0] == ',') {
+            starsStr = starsStr.substr(1);  // Remove the leading comma
+        }
+        // Debugging output
+        std::cout << "Debug - Trimmed Stars value: '" << starsStr << "'" << std::endl;
+
+        // Check if we can get the other optional fields
+        if (typeStr == "S") {
+            size_t lastCommaPos = line.find_last_of(',');
+            if (lastCommaPos != string::npos) {
+                top40Str = line.substr(lastCommaPos + 1);
+            }
+        }
+        else if (typeStr == "B") {
+            size_t lastCommaPos = line.find_last_of(',');
+            if (lastCommaPos != string::npos) {
+                weeksNYTStr = line.substr(lastCommaPos + 1);
+            }
         }
 
         // Trim fields
@@ -76,9 +95,6 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
         trim(typeStr); trim(title); trim(creator); trim(ratingStr);
         trim(genre); trim(lengthStr); trim(yearStr); trim(starsStr);
         trim(weeksNYTStr); trim(top40Str);
-
-        // Debug - check trimmed top40 value
-        std::cout << "Debug - Trimmed Top40 value: '" << top40Str << "'" << std::endl;
 
         // Validation
         bool valid = true;
@@ -98,10 +114,7 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
             if (!lengthStr.empty()) length = stoi(lengthStr);
             if (!yearStr.empty()) year = stoi(yearStr);
             if (typeStr == "B" && !weeksNYTStr.empty()) weeksNYT = stoi(weeksNYTStr);
-            if (typeStr == "S" && !top40Str.empty()) {
-                // Convert top40Str to integer
-                top40 = stoi(top40Str);
-            }
+            if (typeStr == "S" && !top40Str.empty()) top40 = stoi(top40Str);
         }
         catch (const exception&) {
             valid = false;
@@ -113,20 +126,6 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
             continue;
         }
 
-        // Debug output for Top 40
-        if (typeStr == "S") {  // Only for Songs (S)
-            std::cout << "Debug - Song: " << title << ", Top40 Value: " << top40 << std::endl;
-            if (top40 == 0) {
-                std::cout << "Debug - Song is NOT a Top 40!" << std::endl;
-            }
-            else if (top40 == 1) {
-                std::cout << "Debug - Song is a Top 40!" << std::endl;
-            }
-            else {
-                std::cout << "Debug - Invalid Top40 value for song: " << title << std::endl;
-            }
-        }
-
         // Parse stars for movies
         vector<string> starsVec;
         if (typeStr == "M" && !starsStr.empty()) {
@@ -136,6 +135,12 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
                 trim(star);
                 if (!star.empty()) starsVec.push_back(star);
             }
+            // Debugging output for stars
+            std::cout << "Debug - Movie: " << title << ", Stars: ";
+            for (const auto& star : starsVec) {
+                std::cout << star << " ";
+            }
+            std::cout << std::endl;
         }
 
         // Create media item
@@ -151,8 +156,6 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
 
     return mediaLib.size();
 }
-
-
 
 // Processes the file to read media list
 void processFile(const string& filename, ostream& outFile, vector<Media*>& mediaLib) {
@@ -403,47 +406,69 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     int filterRating = std::stoi(token);
                     if (filterRating >= 1 && filterRating <= 10) {
                         outFile << "\n\nMOVIE LIST WITH RATING >= " << filterRating << ":\n";
-                        outFile << std::left << std::setw(5) << "#" << std::setw(30) << "Title" << std::setw(8) << "Year" << std::setw(1) << "Rating" << "\n";
-                        outFile << std::string(75, '-') << "\n";  // Print a line separator
+                        outFile << std::left << std::setw(5) << "#" << std::setw(30) << "Title" << std::setw(8) << "Year" << std::setw(10) << "Rating" << "Stars\n";
+                        outFile << std::string(85, '-') << "\n";  // Print a line separator
                         bool found = false;
                         for (size_t i = 0; i < mediaLib.size(); ++i) {
                             const auto& media = mediaLib[i];
                             if (media->getType() == 'M' && media->getRating() >= filterRating) {
-                                // Print line number, title, year, and rating in neat columns
+                                // Cast to Movie to access getStars()
+                                Movie* movie = static_cast<Movie*>(media);
+
+                                // Print line number, title, year, rating
                                 outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
                                     << std::setw(30) << media->getTitle()
                                     << std::setw(10) << media->getYearReleased()
-                                    << std::setw(10) << media->getRating()
-                                    << "\n";
+                                    << std::setw(10) << media->getRating();
+
+                                // Print stars without commas, separated by spaces
+                                for (size_t j = 0; j < movie->getStars().size(); ++j) {
+                                    outFile << movie->getStars()[j];
+                                    if (j != movie->getStars().size() - 1) {
+                                        outFile << " ";  // Add a space between stars
+                                    }
+                                }
+
+                                outFile << "\n";
                                 found = true;
                             }
                         }
                         if (!found) {
                             outFile << "No movies found with rating >= " << filterRating << ".\n";
                         }
-
                     }
                     else {
                         cerr << "Invalid rating for command M: " << token << " (must be between 1 and 10)\n";
                     }
-
                 }
                 else {
                     // Treat token as a genre if it’s not numeric
                     outFile << "\n\nMOVIE LIST FOR GENRE: " << token << "\n";
-                    outFile << std::left << std::setw(5) << "#" << std::setw(30) << "Title" << std::setw(8) << "Year" << std::setw(1) << "Rating" << "\n";
-                    outFile << std::string(60, '-') << "\n";  // Print a line separator
+                    outFile << std::left << std::setw(5) << "#" << std::setw(30) << "Title" << std::setw(8) << "Year" << std::setw(10) << "Rating" << "Stars\n";
+                    outFile << std::string(85, '-') << "\n";  // Print a line separator
 
                     bool found = false;
                     for (size_t i = 0; i < mediaLib.size(); ++i) {
                         const auto& media = mediaLib[i];
                         if (media->getType() == 'M' && media->getGenre() == token) {
-                            // Print line number, title, year, and rating in neat columns
+                            // Cast to Movie to access getStars()
+                            Movie* movie = static_cast<Movie*>(media);
+
+                            // Print line number, title, year, rating
                             outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
                                 << std::setw(30) << media->getTitle()
                                 << std::setw(10) << media->getYearReleased()
-                                << std::setw(10) << media->getRating()
-                                << "\n";
+                                << std::setw(10) << media->getRating();
+
+                            // Print stars without commas, separated by spaces
+                            for (size_t j = 0; j < movie->getStars().size(); ++j) {
+                                outFile << movie->getStars()[j];
+                                if (j != movie->getStars().size() - 1) {
+                                    outFile << " ";  // Add a space between stars
+                                }
+                            }
+
+                            outFile << "\n";
                             found = true;
                         }
                     }
@@ -451,23 +476,34 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                         outFile << "No movies found with genre: " << token << ".\n";
                     }
                 }
-
             }
             else {
                 outFile << "\n\nALL MOVIES:\n";
-                outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(8) << "Year" << std::setw(1) << "Rating" << "\n";
-                outFile << std::string(75, '-') << "\n";  // Print a line separator
+                outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(8) << "Year" << std::setw(10) << "Rating" << "Stars\n";
+                outFile << std::string(85, '-') << "\n";  // Print a line separator
 
                 bool found = false;
                 for (size_t i = 0; i < mediaLib.size(); ++i) {
                     const auto& media = mediaLib[i];
                     if (media->getType() == 'M') {
-                        // Print line number, title, year, and rating in neat columns
+                        // Cast to Movie to access getStars()
+                        Movie* movie = static_cast<Movie*>(media);
+
+                        // Print line number, title, year, rating
                         outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
                             << std::setw(40) << media->getTitle()
                             << std::setw(10) << media->getYearReleased()
-                            << std::setw(10) << media->getRating()
-                            << "\n";
+                            << std::setw(10) << media->getRating();
+
+                        // Print stars without commas, separated by spaces
+                        for (size_t j = 0; j < movie->getStars().size(); ++j) {
+                            outFile << movie->getStars()[j];
+                            if (j != movie->getStars().size() - 1) {
+                                outFile << " ";  // Add a space between stars
+                            }
+                        }
+
+                        outFile << "\n";
                         found = true;
                     }
                 }
@@ -475,8 +511,8 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     outFile << "No movies found.\n";
                 }
             }
-
         }
+
 
         if (command == "B") {
             std::string token;
@@ -485,18 +521,24 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     int filterRating = std::stoi(token);
                     if (filterRating >= 1 && filterRating <= 10) {
                         outFile << "\n\nBOOK LIST WITH RATING >= " << filterRating << ":\n";
-                        outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(10) << "Rating" << "\n";
+                        outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(10) << "Rating" <<
+                            std::setw(10) << "Weeks on NYT" << "\n";
                         outFile << std::string(65, '-') << "\n";  // Print a line separator
 
                         bool found = false;
                         for (size_t i = 0; i < mediaLib.size(); ++i) {
                             const auto& media = mediaLib[i];
                             if (media->getType() == 'B' && media->getRating() >= filterRating) {
+                                // Cast to Book to access getWeeks
+                                Book* book = static_cast<Book*>(media);
+
+
                                 // Print line number, title, year, and rating in neat columns
                                 outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
                                     << std::setw(40) << media->getTitle()
                                     << std::setw(10) << media->getYearReleased()
                                     << std::setw(10) << media->getRating()
+                                    << book->getWeeks()
                                     << "\n";
                                 found = true;
                             }
@@ -515,7 +557,8 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 else {
                     // Treat token as a genre if it’s not numeric
                     outFile << "\n\nBOOK LIST FOR GENRE: " << token << "\n";
-                    outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(3) << "Rating" << "\n";
+                    outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(10) << "Rating" << 
+                        std::setw(10) << "Weeks on NYT" << "\n";
                     outFile << std::string(60, '-') << "\n";  // Print a line separator
 
 
@@ -523,11 +566,15 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     for (size_t i = 0; i < mediaLib.size(); ++i) {
                         const auto& media = mediaLib[i];
                         if (media->getType() == 'B' && media->getGenre() == token) {
+                            // Cast to Book to access getWeeks
+                            Book* book = static_cast<Book*>(media);
+
+
                             outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
                                 << std::setw(40) << media->getTitle()
                                 << std::setw(10) << media->getYearReleased()
                                 << std::setw(10) << media->getRating()
-
+                                << book->getWeeks()
                                 << "\n";
                             found = true;
                         }
@@ -539,7 +586,8 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
             }
             else {
                 outFile << "\n\nALL BOOKS: \n";
-                outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(3) << "Rating" << "\n";
+                outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(10) << "Rating" <<
+                    std::setw(10) << "Weeks on NYT" << "\n";
                 outFile << std::string(60, '-') << "\n";  // Print a line separator
 
 
@@ -547,11 +595,14 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 for (size_t i = 0; i < mediaLib.size(); ++i) {
                     const auto& media = mediaLib[i];
                     if (media->getType() == 'B') {
+                        // Cast to Book to access getWeeks
+                        Book* book = static_cast<Book*>(media);
 
                         outFile << std::left << std::setw(5) << (i + 1)  // Line number (1-based index)
                             << std::setw(40) << media->getTitle()
                             << std::setw(10) << media->getYearReleased()
                             << std::setw(10) << media->getRating()
+                            << book->getWeeks()
                             << "\n";
                         found = true;
                     }
