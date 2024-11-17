@@ -9,46 +9,197 @@ No movies found.
 ALL BOOKS: 
 #    Title                                   Year   Rating
 ------------------------------------------------------------
-No books found.
+1    To Kill a Mockingbird                   1960      8         
+2    Hamlet                                  1600      4         
+3    Animal Farm                             1945      8         
+4    The Great Gatsby                        1925      7         
+5    The Catcher in the Rye                  1951      3         
+6    Lord of the Flies                       1954      6         
+7    Of Mice and Men                         1937      5         
+8    Crime and Punishment                    1866      7         
+9    House of Leaves                         2000      9         
+10   I Can Teach You to Be Rich              2009      8         
+11   Neuromancer                             1984      10        
+12   Percy Jackson and the Last Olympian     2009      9         
+13   Six of Crows                            2015      10        
+14   The Alchemist                           1993      9         
+15   The Goldfinch                           2013      10        
+16   The Hunger Games                        2008      7         
+17   The Music of Erich Zann                 1921      10        
+18   Watchmen                                1987      8         
+19   Way of kings                            2010      10        
 
 
 ALL SONGS:
-#    Title                                   Year   RatingStars       
-----------------------------------------------------------------------
-No songs found.
-
-
-ALL MEDIA: 
 #    Title                                   Year   Rating
 ------------------------------------------------------------
+20   All Too Well                            2012      10        
+21   Baba Yetu                               2025      10        
+22   Ball if I want to                       2021      10        
+23   Call out my name                        2021      8         
+24   Yesterday                               1965      8         
+25   Compass                                 2018      8         
+26   Easy on me                              2021      6         
+27   Figures                                 2018      8         
+28   First Love / Late Spring                2014      10        
+29   Frozen                                  2017      5         
+30   Garden Grove                            1998      10        
+31   Hey Jude                                1968      10        
+32   Har dil ki ava                          2014      10        
+33   Holy Ghost                              2015      8         
+34   kal ho na ho                            2009      9         
+35   Let It Be                               1970      9         
+36   Monks                                   2012      10        
+37   More Than a Woman                       1977      9         
+38   nasha ha                                2010      8         
+39   Out Tha Mud                             2015      10        
+40   Phali dafa                              2017      9         
+41   Sea Dragon                              2018      9         
+42   Slacker                                 2002      10        
+43   Something                               2015      10        
+44   Stayin' Alive                           1979      10        
+45   Sweet Caroline                          1969      10        
+46   Sweet Life                              2012      8         
+47   Thank u - next                          2019      8         
+48   The Mountain Top                        2021      10        
+49   Tik Tok                                 2009      9         
+50   Tranquility Base Hotel & Casino         2018      10        
+51   Wake Up                                 2015      9         
+
+
+ALL MEDIA:
+#    Title                                   Year   Rating
+------------------------------------------------------------
+1    To Kill a Mockingbird                   1960      8         
+2    Hamlet                                  1600      4         
+3    Animal Farm                             1945      8         
+4    The Great Gatsby                        1925      7         
+5    The Catcher in the Rye                  1951      3         
+6    Lord of the Flies                       1954      6         
+7    Of Mice and Men                         1937      5         
+8    Crime and Punishment                    1866      7         
+9    House of Leaves                         2000      9         
+10   I Can Teach You to Be Rich              2009      8         
+11   Neuromancer                             1984      10        
+12   Percy Jackson and the Last Olympian     2009      9         
+13   Six of Crows                            2015      10        
+14   The Alchemist                           1993      9         
+15   The Goldfinch                           2013      10        
+16   The Hunger Games                        2008      7         
+17   The Music of Erich Zann                 1921      10        
+18   Watchmen                                1987      8         
+19   Way of kings                            2010      10        
+20   All Too Well                            2012      10        
+21   Baba Yetu                               2025      10        
+22   Ball if I want to                       2021      10        
+23   Call out my name                        2021      8         
+24   Yesterday                               1965      8         
+25   Compass                                 2018      8         
+26   Easy on me                              2021      6         
+27   Figures                                 2018      8         
+28   First Love / Late Spring                2014      10        
+29   Frozen                                  2017      5         
+30   Garden Grove                            1998      10        
+31   Hey Jude                                1968      10        
+32   Har dil ki ava                          2014      10        
+33   Holy Ghost                              2015      8         
+34   kal ho na ho                            2009      9         
+35   Let It Be                               1970      9         
+36   Monks                                   2012      10        
+37   More Than a Woman                       1977      9         
+38   nasha ha                                2010      8         
+39   Out Tha Mud                             2015      10        
+40   Phali dafa                              2017      9         
+41   Sea Dragon                              2018      9         
+42   Slacker                                 2002      10        
+43   Something                               2015      10        
+44   Stayin' Alive                           1979      10        
+45   Sweet Caroline                          1969      10        
+46   Sweet Life                              2012      8         
+47   Thank u - next                          2019      8         
+48   The Mountain Top                        2021      10        
+49   Tik Tok                                 2009      9         
+50   Tranquility Base Hotel & Casino         2018      10        
+51   Wake Up                                 2015      9         
 
 
 YOUR MEDIA LIBRARY 
-Total Counts - Movies: 0, Books: 0, Songs: 0
+Total Counts - Movies: 0, Books: 19, Songs: 32
 
 SONG LIST FOR GENRE: -3
-#    Title                                   Year   RatingStars       
-----------------------------------------------------------------------
+#    Title                                   Year   Rating
+------------------------------------------------------------
 No songs found with genre -3.
 
 
 BOOK LIST WITH RATING >= 8:
 #    Title                                   Year   Rating    
 -----------------------------------------------------------------
-No books found with rating >= 8.
+1    To Kill a Mockingbird                   1960      8         
+3    Animal Farm                             1945      8         
+9    House of Leaves                         2000      9         
+10   I Can Teach You to Be Rich              2009      8         
+11   Neuromancer                             1984      10        
+12   Percy Jackson and the Last Olympian     2009      9         
+13   Six of Crows                            2015      10        
+14   The Alchemist                           1993      9         
+15   The Goldfinch                           2013      10        
+17   The Music of Erich Zann                 1921      10        
+18   Watchmen                                1987      8         
+19   Way of kings                            2010      10        
 
 SONG LIST WITH RATING >= 9:
 #    Title                                   Year   Rating
-----------------------------------------------------------------------
-No songs found with rating >= 9.
+------------------------------------------------------------
+20   All Too Well                            2012      10        
+21   Baba Yetu                               2025      10        
+22   Ball if I want to                       2021      10        
+28   First Love / Late Spring                2014      10        
+30   Garden Grove                            1998      10        
+31   Hey Jude                                1968      10        
+32   Har dil ki ava                          2014      10        
+34   kal ho na ho                            2009      9         
+35   Let It Be                               1970      9         
+36   Monks                                   2012      10        
+37   More Than a Woman                       1977      9         
+39   Out Tha Mud                             2015      10        
+40   Phali dafa                              2017      9         
+41   Sea Dragon                              2018      9         
+42   Slacker                                 2002      10        
+43   Something                               2015      10        
+44   Stayin' Alive                           1979      10        
+45   Sweet Caroline                          1969      10        
+48   The Mountain Top                        2021      10        
+49   Tik Tok                                 2009      9         
+50   Tranquility Base Hotel & Casino         2018      10        
+51   Wake Up                                 2015      9         
 
 
 ALL MEDIA WITH RATING: 10:
 #    Title                                   Year   Rating
 -----------------------------------------------------------------
+11   Neuromancer                             1984      10        
+13   Six of Crows                            2015      10        
+15   The Goldfinch                           2013      10        
+17   The Music of Erich Zann                 1921      10        
+19   Way of kings                            2010      10        
+20   All Too Well                            2012      10        
+21   Baba Yetu                               2025      10        
+22   Ball if I want to                       2021      10        
+28   First Love / Late Spring                2014      10        
+30   Garden Grove                            1998      10        
+31   Hey Jude                                1968      10        
+32   Har dil ki ava                          2014      10        
+36   Monks                                   2012      10        
+39   Out Tha Mud                             2015      10        
+42   Slacker                                 2002      10        
+43   Something                               2015      10        
+44   Stayin' Alive                           1979      10        
+45   Sweet Caroline                          1969      10        
+48   The Mountain Top                        2021      10        
+50   Tranquility Base Hotel & Casino         2018      10        
 
 Hidden Figures [M] was added to your list
-Error: Invalid data for media type 'M'
 
 Africa [S] was added to your list
 
@@ -61,7 +212,6 @@ Bohemian Rhapsody [S] was added to your list
 Close Encounters [B] was added to your list
 
 Close Encounters [B] was added to your list
-Error: Invalid data for media type 'B'
 
 Lessons in Chemistry [B] was added to your list
 
@@ -69,15 +219,51 @@ Yellow Submarine [S] was added to your list
 
 SONG LIST WITH RATING >= 9:
 #    Title                                   Year   Rating
-----------------------------------------------------------------------
-3    Strawberry Fields Forever               1967      9         
-           4    Strawberry Fields Forever               1967      9         
-           
+------------------------------------------------------------
+20   All Too Well                            2012      10        
+21   Baba Yetu                               2025      10        
+22   Ball if I want to                       2021      10        
+28   First Love / Late Spring                2014      10        
+30   Garden Grove                            1998      10        
+31   Hey Jude                                1968      10        
+32   Har dil ki ava                          2014      10        
+34   kal ho na ho                            2009      9         
+35   Let It Be                               1970      9         
+36   Monks                                   2012      10        
+37   More Than a Woman                       1977      9         
+39   Out Tha Mud                             2015      10        
+40   Phali dafa                              2017      9         
+41   Sea Dragon                              2018      9         
+42   Slacker                                 2002      10        
+43   Something                               2015      10        
+44   Stayin' Alive                           1979      10        
+45   Sweet Caroline                          1969      10        
+48   The Mountain Top                        2021      10        
+49   Tik Tok                                 2009      9         
+50   Tranquility Base Hotel & Casino         2018      10        
+51   Wake Up                                 2015      9         
+54   Strawberry Fields Forever               1967      9         
+55   Strawberry Fields Forever               1967      9         
+
 
 BOOK LIST WITH RATING >= 7:
 #    Title                                   Year   Rating    
 -----------------------------------------------------------------
-No books found with rating >= 7.
+1    To Kill a Mockingbird                   1960      8         
+3    Animal Farm                             1945      8         
+4    The Great Gatsby                        1925      7         
+8    Crime and Punishment                    1866      7         
+9    House of Leaves                         2000      9         
+10   I Can Teach You to Be Rich              2009      8         
+11   Neuromancer                             1984      10        
+12   Percy Jackson and the Last Olympian     2009      9         
+13   Six of Crows                            2015      10        
+14   The Alchemist                           1993      9         
+15   The Goldfinch                           2013      10        
+16   The Hunger Games                        2008      7         
+17   The Music of Erich Zann                 1921      10        
+18   Watchmen                                1987      8         
+19   Way of kings                            2010      10        
 
 
 Invalid rating for command B: 15 (must be between 1 and 10)
@@ -86,37 +272,94 @@ Invalid rating for command B: 15 (must be between 1 and 10)
 BOOK LIST FOR GENRE: Suspense
 #    Title                                   Year   Rating
 ------------------------------------------------------------
-No movies found with genre: Suspense.
+15   The Goldfinch                           2013      10        
 
 SONG LIST FOR GENRE: R&B
-#    Title                                   Year   RatingStars       
-----------------------------------------------------------------------
-No songs found with genre R&B.
+#    Title                                   Year   Rating
+------------------------------------------------------------
+23   Call out my name                        2021      8         
+27   Figures                                 2018      8         
+29   Frozen                                  2017      5         
 
 SONG LIST FOR GENRE: Rock
-#    Title                                   Year   RatingStars       
-----------------------------------------------------------------------
-No songs found with genre Rock.
+#    Title                                   Year   Rating
+------------------------------------------------------------
+24   Yesterday                               1965      8         
+31   Hey Jude                                1968      10        
+35   Let It Be                               1970      9         
+45   Sweet Caroline                          1969      10        
+50   Tranquility Base Hotel & Casino         2018      10        
 
 SONG LIST FOR GENRE: none
-#    Title                                   Year   RatingStars       
-----------------------------------------------------------------------
+#    Title                                   Year   Rating
+------------------------------------------------------------
 No songs found with genre none.
 
 
-ALL MEDIA: 
+ALL MEDIA:
 #    Title                                   Year   Rating
 ------------------------------------------------------------
-1    Hidden Figures                          2016      9         
-2    Africa                                  1982      7         
-3    Strawberry Fields Forever               1967      9         
-4    Strawberry Fields Forever               1967      9         
-5    Bohemian Rhapsody                       1975      8         
-6    Close Encounters                        1997      5         
-7    Close Encounters                        1997      5         
-8    Lessons in Chemistry                    2022      5         
-9    Yellow Submarine                        1966      8         
+1    To Kill a Mockingbird                   1960      8         
+2    Hamlet                                  1600      4         
+3    Animal Farm                             1945      8         
+4    The Great Gatsby                        1925      7         
+5    The Catcher in the Rye                  1951      3         
+6    Lord of the Flies                       1954      6         
+7    Of Mice and Men                         1937      5         
+8    Crime and Punishment                    1866      7         
+9    House of Leaves                         2000      9         
+10   I Can Teach You to Be Rich              2009      8         
+11   Neuromancer                             1984      10        
+12   Percy Jackson and the Last Olympian     2009      9         
+13   Six of Crows                            2015      10        
+14   The Alchemist                           1993      9         
+15   The Goldfinch                           2013      10        
+16   The Hunger Games                        2008      7         
+17   The Music of Erich Zann                 1921      10        
+18   Watchmen                                1987      8         
+19   Way of kings                            2010      10        
+20   All Too Well                            2012      10        
+21   Baba Yetu                               2025      10        
+22   Ball if I want to                       2021      10        
+23   Call out my name                        2021      8         
+24   Yesterday                               1965      8         
+25   Compass                                 2018      8         
+26   Easy on me                              2021      6         
+27   Figures                                 2018      8         
+28   First Love / Late Spring                2014      10        
+29   Frozen                                  2017      5         
+30   Garden Grove                            1998      10        
+31   Hey Jude                                1968      10        
+32   Har dil ki ava                          2014      10        
+33   Holy Ghost                              2015      8         
+34   kal ho na ho                            2009      9         
+35   Let It Be                               1970      9         
+36   Monks                                   2012      10        
+37   More Than a Woman                       1977      9         
+38   nasha ha                                2010      8         
+39   Out Tha Mud                             2015      10        
+40   Phali dafa                              2017      9         
+41   Sea Dragon                              2018      9         
+42   Slacker                                 2002      10        
+43   Something                               2015      10        
+44   Stayin' Alive                           1979      10        
+45   Sweet Caroline                          1969      10        
+46   Sweet Life                              2012      8         
+47   Thank u - next                          2019      8         
+48   The Mountain Top                        2021      10        
+49   Tik Tok                                 2009      9         
+50   Tranquility Base Hotel & Casino         2018      10        
+51   Wake Up                                 2015      9         
+52   Hidden Figures                          2016      9         
+53   Africa                                  1982      7         
+54   Strawberry Fields Forever               1967      9         
+55   Strawberry Fields Forever               1967      9         
+56   Bohemian Rhapsody                       1975      8         
+57   Close Encounters                        1997      5         
+58   Close Encounters                        1997      5         
+59   Lessons in Chemistry                    2022      5         
+60   Yellow Submarine                        1966      8         
 
 
 YOUR MEDIA LIBRARY 
-Total Counts - Movies: 1, Books: 3, Songs: 5
+Total Counts - Movies: 1, Books: 22, Songs: 37

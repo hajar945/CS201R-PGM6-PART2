@@ -9,23 +9,28 @@
 using namespace std;
 
 bool isDigits(string str1);
+bool checkIfDigits(const string& str);
+
 int  readMediaList(istream& i, ostream& o, vector<Media*>& m);
 //void processCommand(const string& command, const vector<Media*>& mediaLib, ostream& report);
 
-void processCommands(const std::string& filename, ofstream& outFile, vector<Media*>& mediaLib);
+//void processCommands(const std::string& filename, ofstream& outFile, vector<Media*>& mediaLib);
+void processCommands(const std::string & filename, std::ofstream & outFile, std::vector<Media*>&mediaLib);
 
 void printAllMedia(ostream& outFile, const vector<Media*>& mediaLib);
 void printMovies(ostream& outFile, const vector<Media*>& mediaLib);
 void printBooks(ostream& outFile, const vector<Media*>& mediaLib);
 void printSongs(ostream& outFile, const vector<Media*>& mediaLib);
-void printTotals(ostream& outFile, const vector<Media*>& mediaLib);
+//void printTotals(ostream& outFile, const vector<Media*>& mediaLib);
 
 
-void printByRating(ostream& outFile, const vector<Media*>& mediaLib, int rating);
+//void printByRating(ostream& outFile, const vector<Media*>& mediaLib, int rating);
 
+//void addNewMedia(ostream& outFile, const string& type, const string& title, const string& name,
+  //  int rating, const string& genre, int length, int year, vector<Media*>& mediaLib);
 void addNewMedia(ostream& outFile, const string& type, const string& title, const string& name,
-    int rating, const string& genre, int length, int year, vector<Media*>& mediaLib);
-
+    int rating, const string& genre, int length, int year, vector<Media*>& mediaLib,
+    const vector<string>& stars, int weeksNYT, int top40);
 
 void printByGenre(ostream& outFile, const vector<Media*>& mediaLib, const string& genre, char type);
 
@@ -44,3 +49,6 @@ void listAllMedia(ofstream& outFile, const vector<Media*>& myLib, int rating = -
 void listMediaByType(ofstream& outFile, const vector<Media*>& myLib, char type, int rating = -1, const string& genre = "");
 void printTotalCounts(ofstream& outFile, const vector<Media*>& myLib);
 //void addNewMedia(const string& data, vector<Media*>& myLib, ofstream& outErr);
+Media* createMedia(char typeChar, const string& title, const string& creator, int rating,
+    const string& genre, int length, int year, const vector<string>& stars,
+    int weeksNYT, int top40);

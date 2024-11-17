@@ -14,10 +14,6 @@
 #include <iomanip>
 #include <cctype>
 
-#include "Movie.h"
-#include "Book.h"
-#include "Song.h"
-
 using namespace std;
 
 int main() {
