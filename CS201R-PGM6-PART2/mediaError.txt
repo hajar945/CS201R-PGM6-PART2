@@ -1,9 +1,13 @@
-Error on line 8: Invalid numeric data
-Error on line 8: Invalid data, skipping line
-Error on line 12: Missing stars information after year
-Error on line 41: Invalid numeric data
-Error on line 41: Invalid data, skipping line
-Error on line 46: Invalid numeric data
-Error on line 46: Invalid data, skipping line
-Error on line 68: Invalid numeric data
-Error on line 68: Invalid data, skipping line
+Error on line 12 - Missing stars information after year: Fahrenheit 451 Ray Bradbury Sci-Fi 256 1953 8
+Invalid rating for command M: 11 (must be between 1 and 10)
+Error with: Psych 2: Lassie Come Home Steve Franks 16 Comedy 115 2020: Invalid value in rating, length, or year
+Error with: Respect Aretha Franklin ERROR R&B 281 1967: Invalid numeric value
+Error with: Strawberry Fields Forever Beatles 9 pop ERROR 1967: Invalid numeric value
+Error with: The Brothers Hawthorne Jennifer Lynn Barnes 9 Mystery 400 ERROR: Invalid numeric value
+Error with: Lessons in Chemistry Bonnie Garmus 5 Humor 320 2026: Invalid value in rating, length, or year
+Invalid rating for command B: 15 (must be between 1 and 10)
+Error: Movie titled 'Lost' not found in the library.
+No movies found featuring 'Victor Lee'.
+Error: No media containing the name 'Steven Spielberg' found in the library.
+Error: No media containing the name 'Bee Gees' found in the library.
+Error: No media containing the name 'Beatles' found in the library.

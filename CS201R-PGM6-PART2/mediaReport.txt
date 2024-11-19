@@ -1,8 +1,12 @@
+Error on line 8 - Invalid numeric data: Hidden Figures 9 Drama 126 2016 Jaraji P Henson
+Error on line 41 - Invalid numeric data: Watchmen Alan Moore 8 Sci-Fi 416 1987
+Error on line 46 - Invalid numeric data: Blinding Lights the Weeknd 10 9 INVALID 2020
+Error on line 68 - Invalid numeric data: Stayin' Alive Bee Gees 10 Pop 419 1979
 
 
 ALL MOVIES:
 #    Title                                   Year    Rating    Stars
--------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
 1    To Kill a Mockingbird                   1962      5         Gregory Peck Mary Badham
 2    Ferris Bueller's Day Off                1986      7         Matthew Broderick Alan Ruck Jennifer Grey
 3    Rocky                                   1976      7         Sylvester Stallone Carl Weathers
@@ -10,79 +14,83 @@ ALL MOVIES:
 5    Daughters of the Dust                   1991      8         Alva Rogers Cora Lee Day
 6    Raiders of the Lost Ark                 1981      6         Harrison Ford Karen Allen
 7    Star Wars IV                            1977      6         Mark Hamill Carrie Fisher Harrison Ford Alec Guiness
-8    Mr. Holland's Opus                      1995      8         Richard Dreyfuss Jay Thomas Glenne Headly
-16   Blade Runner 2049                       2017      9         Ryan Gosling Harrison Ford
-17   Jurassic Park                           1993      8         Sam Neill Jeff Goldblum
-18   Dune                                    2021      7         Timothee Chalamet Zendaya
-19   So I Married an Axe Murderer            1993      15        Mike Meyers Nancy Travis
-20   Fight Club                              1999      10        Brad Pitt Edward Norton
-21   Percy Jackson and the Lightning Thief   2010      2         Logan Lerman Alexandra Daddario
-22   The Grand Budapest Hotel                2014      9         Ralph Fiennes Saoirse Ronan
-23   Superman                                1978      8         Christopher Reeve Gene Hackman Margo Kidder
-24   Spirited Away                           2002      8         Rumi Hiiragi Miyu Irino
-25   Gone Girl                               2014      10        Ben Affleck Rosamund Pike
-26   Moonlight                               2016      10        Mahershala Ali Naomi Harris
-27   The Wolf of Wallstreet                  2013      10        Leonardo DiCaprio Jonah Hill
-28   Maximum Overdrive                       1986      5         Emilio Estivez Pat Hingle Laura Harrington
+8    Hidden Figures                          -1        -1        Octavia Spencer Janelle Monae
+9    Mr. Holland's Opus                      1995      8         Richard Dreyfuss Jay Thomas Glenne Headly
+17   Blade Runner 2049                       2017      9         Ryan Gosling Harrison Ford
+18   Jurassic Park                           1993      8         Sam Neill Jeff Goldblum
+19   Dune                                    2021      7         Timothee Chalamet Zendaya
+20   So I Married an Axe Murderer            1993      15        Mike Meyers Nancy Travis
+21   Fight Club                              1999      10        Brad Pitt Edward Norton
+22   Percy Jackson and the Lightning Thief   2010      2         Logan Lerman Alexandra Daddario
+23   The Grand Budapest Hotel                2014      9         Ralph Fiennes Saoirse Ronan
+24   Superman                                1978      8         Christopher Reeve Gene Hackman Margo Kidder
+25   Spirited Away                           2002      8         Rumi Hiiragi Miyu Irino
+26   Gone Girl                               2014      10        Ben Affleck Rosamund Pike
+27   Moonlight                               2016      10        Mahershala Ali Naomi Harris
+28   The Wolf of Wallstreet                  2013      10        Leonardo DiCaprio Jonah Hill
+29   Maximum Overdrive                       1986      5         Emilio Estivez Pat Hingle Laura Harrington
 
 
 ALL BOOKS: 
 #    Title                                   Year   Rating    Weeks on NYT
-------------------------------------------------------------
-9    To Kill a Mockingbird                   1960      8         4
-10   Hamlet                                  1600      4         5
-11   Animal Farm                             1945      8         6
-12   The Great Gatsby                        1925      7         10
-13   The Catcher in the Rye                  1951      3         9
-14   Lord of the Flies                       1954      6         3
-15   Of Mice and Men                         1937      5         15
-29   Crime and Punishment                    1866      7         15
-30   House of Leaves                         2000      9         0
-31   I Can Teach You to Be Rich              2009      8         16
-32   Neuromancer                             1984      10        16
-33   Percy Jackson and the Last Olympian     2009      9         15
-34   Six of Crows                            2015      10        20
-35   The Alchemist                           1993      9         10
-36   The Goldfinch                           2013      10        1
-37   The Hunger Games                        2008      7         15
-38   The Music of Erich Zann                 1921      10        2
-39   Way of kings                            2010      10        5
+-------------------------------------------------------------------------------------------------------------------
+10   To Kill a Mockingbird                   1960      8         4
+11   Hamlet                                  1600      4         5
+12   Animal Farm                             1945      8         6
+13   The Great Gatsby                        1925      7         10
+14   The Catcher in the Rye                  1951      3         9
+15   Lord of the Flies                       1954      6         3
+16   Of Mice and Men                         1937      5         15
+30   Crime and Punishment                    1866      7         15
+31   House of Leaves                         2000      9         0
+32   I Can Teach You to Be Rich              2009      8         16
+33   Neuromancer                             1984      10        16
+34   Percy Jackson and the Last Olympian     2009      9         15
+35   Six of Crows                            2015      10        20
+36   The Alchemist                           1993      9         10
+37   The Goldfinch                           2013      10        1
+38   The Hunger Games                        2008      7         15
+39   The Music of Erich Zann                 1921      10        2
+40   Watchmen                                1987      8         0
+41   Way of kings                            2010      10        5
 
 
 ALL SONGS:
 #    Title                                   Year   Rating              Genre          Top 40
---------------------------------------------------------------------------------
-40   All Too Well                            2012      10             Pop                      Top 40
-41   Baba Yetu                               2025      10             Choir                    Not Top 40
-42   Ball if I want to                       2021      10             Rap                      Top 40
-43   Call out my name                        2021      8              R&B                      Not Top 40
-44   Yesterday                               1965      8              Rock                     Top 40
-45   Compass                                 2018      8              Indie                    Top 40
-46   Easy on me                              2021      6              pop                      Not Top 40
-47   Figures                                 2018      8              R&B                      Not Top 40
-48   First Love / Late Spring                2014      10             Indie                    Top 40
-49   Frozen                                  2017      5              R&B                      Top 40
-50   Garden Grove                            1998      10             Reggae                   Not Top 40
-51   Hey Jude                                1968      10             Rock                     Top 40
-52   Har dil ki ava                          2014      10             Slow music               Top 40
-53   Holy Ghost                              2015      8              Choir                    Top 40
-54   kal ho na ho                            2009      9              Punajbi                  Not Top 40
-55   Let It Be                               1970      9              Rock                     Top 40
-56   Monks                                   2012      10             Pop                      Top 40
-57   More Than a Woman                       1977      9              Pop                      Not Top 40
-58   nasha ha                                2010      8              normal one               Not Top 40
-59   Out Tha Mud                             2015      10             Rap                      Not Top 40
-60   Phali dafa                              2017      9              urdu                     Not Top 40
-61   Sea Dragon                              2018      9              Math Rock                Top 40
-62   Slacker                                 2002      10             Rap                      Top 40
-63   Something                               2015      10             R&B - Jazz               Top 40
-64   Sweet Caroline                          1969      10             Rock                     Top 40
-65   Sweet Life                              2012      8              Pop                      Not Top 40
-66   Thank u - next                          2019      8              Pop                      Top 40
-67   The Mountain Top                        2021      10             Video Game Soundtrack    Not Top 40
-68   Tik Tok                                 2009      9              Pop                      Top 40
-69   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
-70   Wake Up                                 2015      9              Alternative              Not Top 40
+-------------------------------------------------------------------------------------------------------------------
+42   All Too Well                            2012      10             Pop                      Top 40
+43   Baba Yetu                               2025      10             Choir                    Not Top 40
+44   Ball if I want to                       2021      10             Rap                      Top 40
+45   Blinding Lights                         -1        10             9                        Not Top 40
+46   Call out my name                        2021      8              R&B                      Not Top 40
+47   Yesterday                               1965      8              Rock                     Top 40
+48   Compass                                 2018      8              Indie                    Top 40
+49   Easy on me                              2021      6              pop                      Not Top 40
+50   Figures                                 2018      8              R&B                      Not Top 40
+51   First Love / Late Spring                2014      10             Indie                    Top 40
+52   Frozen                                  2017      5              R&B                      Top 40
+53   Garden Grove                            1998      10             Reggae                   Not Top 40
+54   Hey Jude                                1968      10             Rock                     Top 40
+55   Har dil ki ava                          2014      10             Slow music               Top 40
+56   Holy Ghost                              2015      8              Choir                    Top 40
+57   kal ho na ho                            2009      9              Punajbi                  Not Top 40
+58   Let It Be                               1970      9              Rock                     Top 40
+59   Monks                                   2012      10             Pop                      Top 40
+60   More Than a Woman                       1977      9              Pop                      Not Top 40
+61   nasha ha                                2010      8              normal one               Not Top 40
+62   Out Tha Mud                             2015      10             Rap                      Not Top 40
+63   Phali dafa                              2017      9              urdu                     Not Top 40
+64   Sea Dragon                              2018      9              Math Rock                Top 40
+65   Slacker                                 2002      10             Rap                      Top 40
+66   Something                               2015      10             R&B - Jazz               Top 40
+67   Stayin' Alive                           1979      10             Pop                      Not Top 40
+68   Sweet Caroline                          1969      10             Rock                     Top 40
+69   Sweet Life                              2012      8              Pop                      Not Top 40
+70   Thank u - next                          2019      8              Pop                      Top 40
+71   The Mountain Top                        2021      10             Video Game Soundtrack    Not Top 40
+72   Tik Tok                                 2009      9              Pop                      Top 40
+73   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
+74   Wake Up                                 2015      9              Alternative              Not Top 40
 
 
 MEDIA LIST:
@@ -95,148 +103,157 @@ MEDIA LIST:
 5    Daughters of the Dust                   1991   8         Drama                    Stars: Alva Rogers Cora Lee Day 
 6    Raiders of the Lost Ark                 1981   6         Action                   Stars: Harrison Ford Karen Allen 
 7    Star Wars IV                            1977   6         Action                   Stars: Mark Hamill Carrie Fisher Harrison Ford Alec Guiness 
-8    Mr. Holland's Opus                      1995   8         Drama/Musical            Stars: Richard Dreyfuss Jay Thomas Glenne Headly 
-9    To Kill a Mockingbird                   1960   8         Southern Gothic Fiction  Weeks  NYT: 4
-10   Hamlet                                  1600   4         Tragedy                  Weeks  NYT: 5
-11   Animal Farm                             1945   8         Allegory                 Weeks  NYT: 6
-12   The Great Gatsby                        1925   7         Modernist novel          Weeks  NYT: 10
-13   The Catcher in the Rye                  1951   3         Coming of Age            Weeks  NYT: 9
-14   Lord of the Flies                       1954   6         Adventure                Weeks  NYT: 3
-15   Of Mice and Men                         1937   5         Tragedy                  Weeks  NYT: 15
-16   Blade Runner 2049                       2017   9         Sci-Fi                   Stars: Ryan Gosling Harrison Ford 
-17   Jurassic Park                           1993   8         Sci-Fi                   Stars: Sam Neill Jeff Goldblum 
-18   Dune                                    2021   7         Sci-Fi                   Stars: Timothee Chalamet Zendaya 
-19   So I Married an Axe Murderer            1993   15        Comedy                   Stars: Mike Meyers Nancy Travis 
-20   Fight Club                              1999   10        Drama                    Stars: Brad Pitt Edward Norton 
-21   Percy Jackson and the Lightning Thief   2010   2         Fantasy                  Stars: Logan Lerman Alexandra Daddario 
-22   The Grand Budapest Hotel                2014   9         Adventure                Stars: Ralph Fiennes Saoirse Ronan 
-23   Superman                                1978   8         Sci-Fi                   Stars: Christopher Reeve Gene Hackman Margo Kidder 
-24   Spirited Away                           2002   8         Fantasy                  Stars: Rumi Hiiragi Miyu Irino 
-25   Gone Girl                               2014   10        Thriller/Mystery         Stars: Ben Affleck Rosamund Pike 
-26   Moonlight                               2016   10        Drama                    Stars: Mahershala Ali Naomi Harris 
-27   The Wolf of Wallstreet                  2013   10        Comedy                   Stars: Leonardo DiCaprio Jonah Hill 
-28   Maximum Overdrive                       1986   5         Horror                   Stars: Emilio Estivez Pat Hingle Laura Harrington 
-29   Crime and Punishment                    1866   7         Crime Fiction            Weeks  NYT: 15
-30   House of Leaves                         2000   9         Horror                   Weeks  NYT: 0
-31   I Can Teach You to Be Rich              2009   8         Self Help                Weeks  NYT: 16
-32   Neuromancer                             1984   10        Cyberpunk                Weeks  NYT: 16
-33   Percy Jackson and the Last Olympian     2009   9         Fantasy                  Weeks  NYT: 15
-34   Six of Crows                            2015   10        Fantasy                  Weeks  NYT: 20
-35   The Alchemist                           1993   9         Adventure                Weeks  NYT: 10
-36   The Goldfinch                           2013   10        Suspense                 Weeks  NYT: 1
-37   The Hunger Games                        2008   7         Action                   Weeks  NYT: 15
-38   The Music of Erich Zann                 1921   10        Horror                   Weeks  NYT: 2
-39   Way of kings                            2010   10        Fantasy                  Weeks  NYT: 5
-40   All Too Well                            2012   10        Pop                      Top 40 hit
-41   Baba Yetu                               2025   10        Choir                    Not a Top 40 hit
-42   Ball if I want to                       2021   10        Rap                      Top 40 hit
-43   Call out my name                        2021   8         R&B                      Not a Top 40 hit
-44   Yesterday                               1965   8         Rock                     Top 40 hit
-45   Compass                                 2018   8         Indie                    Top 40 hit
-46   Easy on me                              2021   6         pop                      Not a Top 40 hit
-47   Figures                                 2018   8         R&B                      Not a Top 40 hit
-48   First Love / Late Spring                2014   10        Indie                    Top 40 hit
-49   Frozen                                  2017   5         R&B                      Top 40 hit
-50   Garden Grove                            1998   10        Reggae                   Not a Top 40 hit
-51   Hey Jude                                1968   10        Rock                     Top 40 hit
-52   Har dil ki ava                          2014   10        Slow music               Top 40 hit
-53   Holy Ghost                              2015   8         Choir                    Top 40 hit
-54   kal ho na ho                            2009   9         Punajbi                  Not a Top 40 hit
-55   Let It Be                               1970   9         Rock                     Top 40 hit
-56   Monks                                   2012   10        Pop                      Top 40 hit
-57   More Than a Woman                       1977   9         Pop                      Not a Top 40 hit
-58   nasha ha                                2010   8         normal one               Not a Top 40 hit
-59   Out Tha Mud                             2015   10        Rap                      Not a Top 40 hit
-60   Phali dafa                              2017   9         urdu                     Not a Top 40 hit
-61   Sea Dragon                              2018   9         Math Rock                Top 40 hit
-62   Slacker                                 2002   10        Rap                      Top 40 hit
-63   Something                               2015   10        R&B - Jazz               Top 40 hit
-64   Sweet Caroline                          1969   10        Rock                     Top 40 hit
-65   Sweet Life                              2012   8         Pop                      Not a Top 40 hit
-66   Thank u - next                          2019   8         Pop                      Top 40 hit
-67   The Mountain Top                        2021   10        Video Game Soundtrack    Not a Top 40 hit
-68   Tik Tok                                 2009   9         Pop                      Top 40 hit
-69   Tranquility Base Hotel & Casino         2018   10        Rock                     Top 40 hit
-70   Wake Up                                 2015   9         Alternative              Not a Top 40 hit
+8    Hidden Figures                          -1     -1        126                      Stars: Octavia Spencer Janelle Monae 
+9    Mr. Holland's Opus                      1995   8         Drama/Musical            Stars: Richard Dreyfuss Jay Thomas Glenne Headly 
+10   To Kill a Mockingbird                   1960   8         Southern Gothic Fiction  Weeks  NYT: 4
+11   Hamlet                                  1600   4         Tragedy                  Weeks  NYT: 5
+12   Animal Farm                             1945   8         Allegory                 Weeks  NYT: 6
+13   The Great Gatsby                        1925   7         Modernist novel          Weeks  NYT: 10
+14   The Catcher in the Rye                  1951   3         Coming of Age            Weeks  NYT: 9
+15   Lord of the Flies                       1954   6         Adventure                Weeks  NYT: 3
+16   Of Mice and Men                         1937   5         Tragedy                  Weeks  NYT: 15
+17   Blade Runner 2049                       2017   9         Sci-Fi                   Stars: Ryan Gosling Harrison Ford 
+18   Jurassic Park                           1993   8         Sci-Fi                   Stars: Sam Neill Jeff Goldblum 
+19   Dune                                    2021   7         Sci-Fi                   Stars: Timothee Chalamet Zendaya 
+20   So I Married an Axe Murderer            1993   15        Comedy                   Stars: Mike Meyers Nancy Travis 
+21   Fight Club                              1999   10        Drama                    Stars: Brad Pitt Edward Norton 
+22   Percy Jackson and the Lightning Thief   2010   2         Fantasy                  Stars: Logan Lerman Alexandra Daddario 
+23   The Grand Budapest Hotel                2014   9         Adventure                Stars: Ralph Fiennes Saoirse Ronan 
+24   Superman                                1978   8         Sci-Fi                   Stars: Christopher Reeve Gene Hackman Margo Kidder 
+25   Spirited Away                           2002   8         Fantasy                  Stars: Rumi Hiiragi Miyu Irino 
+26   Gone Girl                               2014   10        Thriller/Mystery         Stars: Ben Affleck Rosamund Pike 
+27   Moonlight                               2016   10        Drama                    Stars: Mahershala Ali Naomi Harris 
+28   The Wolf of Wallstreet                  2013   10        Comedy                   Stars: Leonardo DiCaprio Jonah Hill 
+29   Maximum Overdrive                       1986   5         Horror                   Stars: Emilio Estivez Pat Hingle Laura Harrington 
+30   Crime and Punishment                    1866   7         Crime Fiction            Weeks  NYT: 15
+31   House of Leaves                         2000   9         Horror                   Weeks  NYT: 0
+32   I Can Teach You to Be Rich              2009   8         Self Help                Weeks  NYT: 16
+33   Neuromancer                             1984   10        Cyberpunk                Weeks  NYT: 16
+34   Percy Jackson and the Last Olympian     2009   9         Fantasy                  Weeks  NYT: 15
+35   Six of Crows                            2015   10        Fantasy                  Weeks  NYT: 20
+36   The Alchemist                           1993   9         Adventure                Weeks  NYT: 10
+37   The Goldfinch                           2013   10        Suspense                 Weeks  NYT: 1
+38   The Hunger Games                        2008   7         Action                   Weeks  NYT: 15
+39   The Music of Erich Zann                 1921   10        Horror                   Weeks  NYT: 2
+40   Watchmen                                1987   8         Sci-Fi                   Weeks  NYT: 0
+41   Way of kings                            2010   10        Fantasy                  Weeks  NYT: 5
+42   All Too Well                            2012   10        Pop                      Top 40 hit
+43   Baba Yetu                               2025   10        Choir                    Not a Top 40 hit
+44   Ball if I want to                       2021   10        Rap                      Top 40 hit
+45   Blinding Lights                         -1     10        9                        Not a Top 40 hit
+46   Call out my name                        2021   8         R&B                      Not a Top 40 hit
+47   Yesterday                               1965   8         Rock                     Top 40 hit
+48   Compass                                 2018   8         Indie                    Top 40 hit
+49   Easy on me                              2021   6         pop                      Not a Top 40 hit
+50   Figures                                 2018   8         R&B                      Not a Top 40 hit
+51   First Love / Late Spring                2014   10        Indie                    Top 40 hit
+52   Frozen                                  2017   5         R&B                      Top 40 hit
+53   Garden Grove                            1998   10        Reggae                   Not a Top 40 hit
+54   Hey Jude                                1968   10        Rock                     Top 40 hit
+55   Har dil ki ava                          2014   10        Slow music               Top 40 hit
+56   Holy Ghost                              2015   8         Choir                    Top 40 hit
+57   kal ho na ho                            2009   9         Punajbi                  Not a Top 40 hit
+58   Let It Be                               1970   9         Rock                     Top 40 hit
+59   Monks                                   2012   10        Pop                      Top 40 hit
+60   More Than a Woman                       1977   9         Pop                      Not a Top 40 hit
+61   nasha ha                                2010   8         normal one               Not a Top 40 hit
+62   Out Tha Mud                             2015   10        Rap                      Not a Top 40 hit
+63   Phali dafa                              2017   9         urdu                     Not a Top 40 hit
+64   Sea Dragon                              2018   9         Math Rock                Top 40 hit
+65   Slacker                                 2002   10        Rap                      Top 40 hit
+66   Something                               2015   10        R&B - Jazz               Top 40 hit
+67   Stayin' Alive                           1979   10        Pop                      Not a Top 40 hit
+68   Sweet Caroline                          1969   10        Rock                     Top 40 hit
+69   Sweet Life                              2012   8         Pop                      Not a Top 40 hit
+70   Thank u - next                          2019   8         Pop                      Top 40 hit
+71   The Mountain Top                        2021   10        Video Game Soundtrack    Not a Top 40 hit
+72   Tik Tok                                 2009   9         Pop                      Top 40 hit
+73   Tranquility Base Hotel & Casino         2018   10        Rock                     Top 40 hit
+74   Wake Up                                 2015   9         Alternative              Not a Top 40 hit
 
 
 YOUR MEDIA LIBRARY
-Total Counts - Movies: 21, Books: 18, Songs: 31
+Total Counts - Movies: 22, Books: 19, Songs: 33
 
 SONG LIST FOR GENRE: -3
 #    Title                                   Year   Rating              Genre                    Top 40
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
 No songs found with genre -3.
 
 
 BOOK LIST WITH RATING >= 8:
 #    Title                                   Year   Rating    Weeks on NYT
------------------------------------------------------------------
-9    To Kill a Mockingbird                   1960      8         4
-11   Animal Farm                             1945      8         6
-30   House of Leaves                         2000      9         0
-31   I Can Teach You to Be Rich              2009      8         16
-32   Neuromancer                             1984      10        16
-33   Percy Jackson and the Last Olympian     2009      9         15
-34   Six of Crows                            2015      10        20
-35   The Alchemist                           1993      9         10
-36   The Goldfinch                           2013      10        1
-38   The Music of Erich Zann                 1921      10        2
-39   Way of kings                            2010      10        5
+-------------------------------------------------------------------------------------------------------------------
+10   To Kill a Mockingbird                   1960      8         4
+12   Animal Farm                             1945      8         6
+31   House of Leaves                         2000      9         0
+32   I Can Teach You to Be Rich              2009      8         16
+33   Neuromancer                             1984      10        16
+34   Percy Jackson and the Last Olympian     2009      9         15
+35   Six of Crows                            2015      10        20
+36   The Alchemist                           1993      9         10
+37   The Goldfinch                           2013      10        1
+39   The Music of Erich Zann                 1921      10        2
+40   Watchmen                                1987      8         0
+41   Way of kings                            2010      10        5
 
 SONG LIST WITH RATING >= 9:
 #    Title                                   Year   Rating              Genre                    Top 40
 -------------------------------------------------------------------------------------------------------------------
-40   All Too Well                            2012      10             Pop                      Top 40
-41   Baba Yetu                               2025      10             Choir                    Not Top 40
-42   Ball if I want to                       2021      10             Rap                      Top 40
-48   First Love / Late Spring                2014      10             Indie                    Top 40
-50   Garden Grove                            1998      10             Reggae                   Not Top 40
-51   Hey Jude                                1968      10             Rock                     Top 40
-52   Har dil ki ava                          2014      10             Slow music               Top 40
-54   kal ho na ho                            2009      9              Punajbi                  Not Top 40
-55   Let It Be                               1970      9              Rock                     Top 40
-56   Monks                                   2012      10             Pop                      Top 40
-57   More Than a Woman                       1977      9              Pop                      Not Top 40
-59   Out Tha Mud                             2015      10             Rap                      Not Top 40
-60   Phali dafa                              2017      9              urdu                     Not Top 40
-61   Sea Dragon                              2018      9              Math Rock                Top 40
-62   Slacker                                 2002      10             Rap                      Top 40
-63   Something                               2015      10             R&B - Jazz               Top 40
-64   Sweet Caroline                          1969      10             Rock                     Top 40
-67   The Mountain Top                        2021      10             Video Game Soundtrack    Not Top 40
-68   Tik Tok                                 2009      9              Pop                      Top 40
-69   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
-70   Wake Up                                 2015      9              Alternative              Not Top 40
+42   All Too Well                            2012      10             Pop                      Top 40
+43   Baba Yetu                               2025      10             Choir                    Not Top 40
+44   Ball if I want to                       2021      10             Rap                      Top 40
+45   Blinding Lights                         -1        10             9                        Not Top 40
+51   First Love / Late Spring                2014      10             Indie                    Top 40
+53   Garden Grove                            1998      10             Reggae                   Not Top 40
+54   Hey Jude                                1968      10             Rock                     Top 40
+55   Har dil ki ava                          2014      10             Slow music               Top 40
+57   kal ho na ho                            2009      9              Punajbi                  Not Top 40
+58   Let It Be                               1970      9              Rock                     Top 40
+59   Monks                                   2012      10             Pop                      Top 40
+60   More Than a Woman                       1977      9              Pop                      Not Top 40
+62   Out Tha Mud                             2015      10             Rap                      Not Top 40
+63   Phali dafa                              2017      9              urdu                     Not Top 40
+64   Sea Dragon                              2018      9              Math Rock                Top 40
+65   Slacker                                 2002      10             Rap                      Top 40
+66   Something                               2015      10             R&B - Jazz               Top 40
+67   Stayin' Alive                           1979      10             Pop                      Not Top 40
+68   Sweet Caroline                          1969      10             Rock                     Top 40
+71   The Mountain Top                        2021      10             Video Game Soundtrack    Not Top 40
+72   Tik Tok                                 2009      9              Pop                      Top 40
+73   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
+74   Wake Up                                 2015      9              Alternative              Not Top 40
 
 
  MEDIA LIST WITH RATINGS >= 10
 #    TITLE                                   YEAR   RATING    GENRE                    OTHER FIELDS
 ----------------------------------------------------------------------------------------------------
-19   So I Married an Axe Murderer            1993   15        Comedy                   Stars: Mike Meyers Nancy Travis 
-20   Fight Club                              1999   10        Drama                    Stars: Brad Pitt Edward Norton 
-25   Gone Girl                               2014   10        Thriller/Mystery         Stars: Ben Affleck Rosamund Pike 
-26   Moonlight                               2016   10        Drama                    Stars: Mahershala Ali Naomi Harris 
-27   The Wolf of Wallstreet                  2013   10        Comedy                   Stars: Leonardo DiCaprio Jonah Hill 
-32   Neuromancer                             1984   10        Cyberpunk                Weeks  NYT: 16
-34   Six of Crows                            2015   10        Fantasy                  Weeks  NYT: 20
-36   The Goldfinch                           2013   10        Suspense                 Weeks  NYT: 1
-38   The Music of Erich Zann                 1921   10        Horror                   Weeks  NYT: 2
-39   Way of kings                            2010   10        Fantasy                  Weeks  NYT: 5
-40   All Too Well                            2012   10        Pop                      Top 40 hit
-41   Baba Yetu                               2025   10        Choir                    Not a Top 40 hit
-42   Ball if I want to                       2021   10        Rap                      Top 40 hit
-48   First Love / Late Spring                2014   10        Indie                    Top 40 hit
-50   Garden Grove                            1998   10        Reggae                   Not a Top 40 hit
-51   Hey Jude                                1968   10        Rock                     Top 40 hit
-52   Har dil ki ava                          2014   10        Slow music               Top 40 hit
-56   Monks                                   2012   10        Pop                      Top 40 hit
-59   Out Tha Mud                             2015   10        Rap                      Not a Top 40 hit
-62   Slacker                                 2002   10        Rap                      Top 40 hit
-63   Something                               2015   10        R&B - Jazz               Top 40 hit
-64   Sweet Caroline                          1969   10        Rock                     Top 40 hit
-67   The Mountain Top                        2021   10        Video Game Soundtrack    Not a Top 40 hit
-69   Tranquility Base Hotel & Casino         2018   10        Rock                     Top 40 hit
+20   So I Married an Axe Murderer            1993   15        Comedy                   Stars: Mike Meyers Nancy Travis 
+21   Fight Club                              1999   10        Drama                    Stars: Brad Pitt Edward Norton 
+26   Gone Girl                               2014   10        Thriller/Mystery         Stars: Ben Affleck Rosamund Pike 
+27   Moonlight                               2016   10        Drama                    Stars: Mahershala Ali Naomi Harris 
+28   The Wolf of Wallstreet                  2013   10        Comedy                   Stars: Leonardo DiCaprio Jonah Hill 
+33   Neuromancer                             1984   10        Cyberpunk                Weeks  NYT: 16
+35   Six of Crows                            2015   10        Fantasy                  Weeks  NYT: 20
+37   The Goldfinch                           2013   10        Suspense                 Weeks  NYT: 1
+39   The Music of Erich Zann                 1921   10        Horror                   Weeks  NYT: 2
+41   Way of kings                            2010   10        Fantasy                  Weeks  NYT: 5
+42   All Too Well                            2012   10        Pop                      Top 40 hit
+43   Baba Yetu                               2025   10        Choir                    Not a Top 40 hit
+44   Ball if I want to                       2021   10        Rap                      Top 40 hit
+45   Blinding Lights                         -1     10        9                        Not a Top 40 hit
+51   First Love / Late Spring                2014   10        Indie                    Top 40 hit
+53   Garden Grove                            1998   10        Reggae                   Not a Top 40 hit
+54   Hey Jude                                1968   10        Rock                     Top 40 hit
+55   Har dil ki ava                          2014   10        Slow music               Top 40 hit
+59   Monks                                   2012   10        Pop                      Top 40 hit
+62   Out Tha Mud                             2015   10        Rap                      Not a Top 40 hit
+65   Slacker                                 2002   10        Rap                      Top 40 hit
+66   Something                               2015   10        R&B - Jazz               Top 40 hit
+67   Stayin' Alive                           1979   10        Pop                      Not a Top 40 hit
+68   Sweet Caroline                          1969   10        Rock                     Top 40 hit
+71   The Mountain Top                        2021   10        Video Game Soundtrack    Not a Top 40 hit
+73   Tranquility Base Hotel & Casino         2018   10        Rock                     Top 40 hit
 
 Hidden Figures [M] was added to your list
 
@@ -259,89 +276,90 @@ Yellow Submarine [S] was added to your list
 SONG LIST WITH RATING >= 9:
 #    Title                                   Year   Rating              Genre                    Top 40
 -------------------------------------------------------------------------------------------------------------------
-40   All Too Well                            2012      10             Pop                      Top 40
-41   Baba Yetu                               2025      10             Choir                    Not Top 40
-42   Ball if I want to                       2021      10             Rap                      Top 40
-48   First Love / Late Spring                2014      10             Indie                    Top 40
-50   Garden Grove                            1998      10             Reggae                   Not Top 40
-51   Hey Jude                                1968      10             Rock                     Top 40
-52   Har dil ki ava                          2014      10             Slow music               Top 40
-54   kal ho na ho                            2009      9              Punajbi                  Not Top 40
-55   Let It Be                               1970      9              Rock                     Top 40
-56   Monks                                   2012      10             Pop                      Top 40
-57   More Than a Woman                       1977      9              Pop                      Not Top 40
-59   Out Tha Mud                             2015      10             Rap                      Not Top 40
-60   Phali dafa                              2017      9              urdu                     Not Top 40
-61   Sea Dragon                              2018      9              Math Rock                Top 40
-62   Slacker                                 2002      10             Rap                      Top 40
-63   Something                               2015      10             R&B - Jazz               Top 40
-64   Sweet Caroline                          1969      10             Rock                     Top 40
-67   The Mountain Top                        2021      10             Video Game Soundtrack    Not Top 40
-68   Tik Tok                                 2009      9              Pop                      Top 40
-69   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
-70   Wake Up                                 2015      9              Alternative              Not Top 40
-73   Strawberry Fields Forever               1967      9              pop                      Not Top 40
-74   Strawberry Fields Forever               1967      9              pop                      Not Top 40
+42   All Too Well                            2012      10             Pop                      Top 40
+43   Baba Yetu                               2025      10             Choir                    Not Top 40
+44   Ball if I want to                       2021      10             Rap                      Top 40
+45   Blinding Lights                         -1        10             9                        Not Top 40
+51   First Love / Late Spring                2014      10             Indie                    Top 40
+53   Garden Grove                            1998      10             Reggae                   Not Top 40
+54   Hey Jude                                1968      10             Rock                     Top 40
+55   Har dil ki ava                          2014      10             Slow music               Top 40
+57   kal ho na ho                            2009      9              Punajbi                  Not Top 40
+58   Let It Be                               1970      9              Rock                     Top 40
+59   Monks                                   2012      10             Pop                      Top 40
+60   More Than a Woman                       1977      9              Pop                      Not Top 40
+62   Out Tha Mud                             2015      10             Rap                      Not Top 40
+63   Phali dafa                              2017      9              urdu                     Not Top 40
+64   Sea Dragon                              2018      9              Math Rock                Top 40
+65   Slacker                                 2002      10             Rap                      Top 40
+66   Something                               2015      10             R&B - Jazz               Top 40
+67   Stayin' Alive                           1979      10             Pop                      Not Top 40
+68   Sweet Caroline                          1969      10             Rock                     Top 40
+71   The Mountain Top                        2021      10             Video Game Soundtrack    Not Top 40
+72   Tik Tok                                 2009      9              Pop                      Top 40
+73   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
+74   Wake Up                                 2015      9              Alternative              Not Top 40
+77   Strawberry Fields Forever               1967      9              pop                      Not Top 40
+78   Strawberry Fields Forever               1967      9              pop                      Not Top 40
 
 
 BOOK LIST WITH RATING >= 7:
 #    Title                                   Year   Rating    Weeks on NYT
------------------------------------------------------------------
-9    To Kill a Mockingbird                   1960      8         4
-11   Animal Farm                             1945      8         6
-12   The Great Gatsby                        1925      7         10
-29   Crime and Punishment                    1866      7         15
-30   House of Leaves                         2000      9         0
-31   I Can Teach You to Be Rich              2009      8         16
-32   Neuromancer                             1984      10        16
-33   Percy Jackson and the Last Olympian     2009      9         15
-34   Six of Crows                            2015      10        20
-35   The Alchemist                           1993      9         10
-36   The Goldfinch                           2013      10        1
-37   The Hunger Games                        2008      7         15
-38   The Music of Erich Zann                 1921      10        2
-39   Way of kings                            2010      10        5
-
-
-Invalid rating for command B: 15 (must be between 1 and 10)
+-------------------------------------------------------------------------------------------------------------------
+10   To Kill a Mockingbird                   1960      8         4
+12   Animal Farm                             1945      8         6
+13   The Great Gatsby                        1925      7         10
+30   Crime and Punishment                    1866      7         15
+31   House of Leaves                         2000      9         0
+32   I Can Teach You to Be Rich              2009      8         16
+33   Neuromancer                             1984      10        16
+34   Percy Jackson and the Last Olympian     2009      9         15
+35   Six of Crows                            2015      10        20
+36   The Alchemist                           1993      9         10
+37   The Goldfinch                           2013      10        1
+38   The Hunger Games                        2008      7         15
+39   The Music of Erich Zann                 1921      10        2
+40   Watchmen                                1987      8         0
+41   Way of kings                            2010      10        5
 
 
 BOOK LIST FOR GENRE: Suspense
 #    Title                                   Year   Rating    Weeks on NYT
-------------------------------------------------------------
-36   The Goldfinch                           2013      10        1
+-------------------------------------------------------------------------------------------------------------------
+37   The Goldfinch                           2013      10        1
 
 SONG LIST FOR GENRE: R&B
 #    Title                                   Year   Rating              Genre                    Top 40
---------------------------------------------------------------------------------
-43   Call out my name                        2021      8              R&B                      Not Top 40
-47   Figures                                 2018      8              R&B                      Not Top 40
-49   Frozen                                  2017      5              R&B                      Top 40
+-------------------------------------------------------------------------------------------------------------------
+46   Call out my name                        2021      8              R&B                      Not Top 40
+50   Figures                                 2018      8              R&B                      Not Top 40
+52   Frozen                                  2017      5              R&B                      Top 40
 
 SONG LIST FOR GENRE: Rock
 #    Title                                   Year   Rating              Genre                    Top 40
---------------------------------------------------------------------------------
-44   Yesterday                               1965      8              Rock                     Top 40
-51   Hey Jude                                1968      10             Rock                     Top 40
-55   Let It Be                               1970      9              Rock                     Top 40
-64   Sweet Caroline                          1969      10             Rock                     Top 40
-69   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
+-------------------------------------------------------------------------------------------------------------------
+47   Yesterday                               1965      8              Rock                     Top 40
+54   Hey Jude                                1968      10             Rock                     Top 40
+58   Let It Be                               1970      9              Rock                     Top 40
+68   Sweet Caroline                          1969      10             Rock                     Top 40
+73   Tranquility Base Hotel & Casino         2018      10             Rock                     Top 40
 
 SONG LIST FOR GENRE: none
 #    Title                                   Year   Rating              Genre                    Top 40
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
 No songs found with genre none.
 
 
 THE STARS OF THE MOVIE Hidden Figures ARE:
-Error: Movie titled 'Lost' not found in the library.
+Octavia Spencer
+Janelle Monae
 
 
 THE STARS OF THE MOVIE Dune ARE:
 Timothee Chalamet
 Zendaya
 Octavia Spencer appears in the following movie(s):
-No movies found featuring 'Octavia Spencer'.
+Hidden Figures
 
 Harrison Ford appears in the following movie(s):
 Raiders of the Lost Ark
@@ -349,19 +367,13 @@ Star Wars IV
 Blade Runner 2049
 
 Victor Lee appears in the following movie(s):
-No movies found featuring 'Victor Lee'.
 
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++
 YOUR LIST CONTAINING Harrison Ford
-
-#           TITLE                           YEAR    RATING      GENRE                      OTHER FIELDS
-  Raiders of the Lost Ark    1981    6      Action          Stars: Harrison Ford Karen Allen 
-  Star Wars IV    1977    6      Action          Stars: Mark Hamill Carrie Fisher Harrison Ford Alec Guiness 
-  Blade Runner 2049    2017    9      Sci-Fi          Stars: Ryan Gosling Harrison Ford 
-Error: No media containing the name 'Steven Spielberg' found in the library.
-Error: No media containing the name 'Bee Gees' found in the library.
-Error: No media containing the name 'Beatles' found in the library.
+#    Title                    Year   Rating              Genre          Other Fields   
+------------------------------------------------------------------------------------------------------------------------
+Raiders of the Lost Ark       1981      6               Action         Harrison Ford Karen Allen 
+Star Wars IV                  1977      6               Action         Mark Hamill Carrie Fisher Harrison Ford Alec Guiness 
+Blade Runner 2049             2017      9               Sci-Fi         Ryan Gosling Harrison Ford 
 
 
 MEDIA LIST:
@@ -374,79 +386,83 @@ MEDIA LIST:
 5    Daughters of the Dust                   1991   8         Drama                    Stars: Alva Rogers Cora Lee Day 
 6    Raiders of the Lost Ark                 1981   6         Action                   Stars: Harrison Ford Karen Allen 
 7    Star Wars IV                            1977   6         Action                   Stars: Mark Hamill Carrie Fisher Harrison Ford Alec Guiness 
-8    Mr. Holland's Opus                      1995   8         Drama/Musical            Stars: Richard Dreyfuss Jay Thomas Glenne Headly 
-9    To Kill a Mockingbird                   1960   8         Southern Gothic Fiction  Weeks  NYT: 4
-10   Hamlet                                  1600   4         Tragedy                  Weeks  NYT: 5
-11   Animal Farm                             1945   8         Allegory                 Weeks  NYT: 6
-12   The Great Gatsby                        1925   7         Modernist novel          Weeks  NYT: 10
-13   The Catcher in the Rye                  1951   3         Coming of Age            Weeks  NYT: 9
-14   Lord of the Flies                       1954   6         Adventure                Weeks  NYT: 3
-15   Of Mice and Men                         1937   5         Tragedy                  Weeks  NYT: 15
-16   Blade Runner 2049                       2017   9         Sci-Fi                   Stars: Ryan Gosling Harrison Ford 
-17   Jurassic Park                           1993   8         Sci-Fi                   Stars: Sam Neill Jeff Goldblum 
-18   Dune                                    2021   7         Sci-Fi                   Stars: Timothee Chalamet Zendaya 
-19   So I Married an Axe Murderer            1993   15        Comedy                   Stars: Mike Meyers Nancy Travis 
-20   Fight Club                              1999   10        Drama                    Stars: Brad Pitt Edward Norton 
-21   Percy Jackson and the Lightning Thief   2010   2         Fantasy                  Stars: Logan Lerman Alexandra Daddario 
-22   The Grand Budapest Hotel                2014   9         Adventure                Stars: Ralph Fiennes Saoirse Ronan 
-23   Superman                                1978   8         Sci-Fi                   Stars: Christopher Reeve Gene Hackman Margo Kidder 
-24   Spirited Away                           2002   8         Fantasy                  Stars: Rumi Hiiragi Miyu Irino 
-25   Gone Girl                               2014   10        Thriller/Mystery         Stars: Ben Affleck Rosamund Pike 
-26   Moonlight                               2016   10        Drama                    Stars: Mahershala Ali Naomi Harris 
-27   The Wolf of Wallstreet                  2013   10        Comedy                   Stars: Leonardo DiCaprio Jonah Hill 
-28   Maximum Overdrive                       1986   5         Horror                   Stars: Emilio Estivez Pat Hingle Laura Harrington 
-29   Crime and Punishment                    1866   7         Crime Fiction            Weeks  NYT: 15
-30   House of Leaves                         2000   9         Horror                   Weeks  NYT: 0
-31   I Can Teach You to Be Rich              2009   8         Self Help                Weeks  NYT: 16
-32   Neuromancer                             1984   10        Cyberpunk                Weeks  NYT: 16
-33   Percy Jackson and the Last Olympian     2009   9         Fantasy                  Weeks  NYT: 15
-34   Six of Crows                            2015   10        Fantasy                  Weeks  NYT: 20
-35   The Alchemist                           1993   9         Adventure                Weeks  NYT: 10
-36   The Goldfinch                           2013   10        Suspense                 Weeks  NYT: 1
-37   The Hunger Games                        2008   7         Action                   Weeks  NYT: 15
-38   The Music of Erich Zann                 1921   10        Horror                   Weeks  NYT: 2
-39   Way of kings                            2010   10        Fantasy                  Weeks  NYT: 5
-40   All Too Well                            2012   10        Pop                      Top 40 hit
-41   Baba Yetu                               2025   10        Choir                    Not a Top 40 hit
-42   Ball if I want to                       2021   10        Rap                      Top 40 hit
-43   Call out my name                        2021   8         R&B                      Not a Top 40 hit
-44   Yesterday                               1965   8         Rock                     Top 40 hit
-45   Compass                                 2018   8         Indie                    Top 40 hit
-46   Easy on me                              2021   6         pop                      Not a Top 40 hit
-47   Figures                                 2018   8         R&B                      Not a Top 40 hit
-48   First Love / Late Spring                2014   10        Indie                    Top 40 hit
-49   Frozen                                  2017   5         R&B                      Top 40 hit
-50   Garden Grove                            1998   10        Reggae                   Not a Top 40 hit
-51   Hey Jude                                1968   10        Rock                     Top 40 hit
-52   Har dil ki ava                          2014   10        Slow music               Top 40 hit
-53   Holy Ghost                              2015   8         Choir                    Top 40 hit
-54   kal ho na ho                            2009   9         Punajbi                  Not a Top 40 hit
-55   Let It Be                               1970   9         Rock                     Top 40 hit
-56   Monks                                   2012   10        Pop                      Top 40 hit
-57   More Than a Woman                       1977   9         Pop                      Not a Top 40 hit
-58   nasha ha                                2010   8         normal one               Not a Top 40 hit
-59   Out Tha Mud                             2015   10        Rap                      Not a Top 40 hit
-60   Phali dafa                              2017   9         urdu                     Not a Top 40 hit
-61   Sea Dragon                              2018   9         Math Rock                Top 40 hit
-62   Slacker                                 2002   10        Rap                      Top 40 hit
-63   Something                               2015   10        R&B - Jazz               Top 40 hit
-64   Sweet Caroline                          1969   10        Rock                     Top 40 hit
-65   Sweet Life                              2012   8         Pop                      Not a Top 40 hit
-66   Thank u - next                          2019   8         Pop                      Top 40 hit
-67   The Mountain Top                        2021   10        Video Game Soundtrack    Not a Top 40 hit
-68   Tik Tok                                 2009   9         Pop                      Top 40 hit
-69   Tranquility Base Hotel & Casino         2018   10        Rock                     Top 40 hit
-70   Wake Up                                 2015   9         Alternative              Not a Top 40 hit
-71   Hidden Figures                          2016   9         Drama                    Stars: 
-72   Africa                                  1982   7         rock                     Not a Top 40 hit
-73   Strawberry Fields Forever               1967   9         pop                      Not a Top 40 hit
-74   Strawberry Fields Forever               1967   9         pop                      Not a Top 40 hit
-75   Bohemian Rhapsody                       1975   8         rock                     Not a Top 40 hit
-76   Close Encounters                        1997   5         Science Fiction          Weeks  NYT: 0
-77   Close Encounters                        1997   5         Science Fiction          Weeks  NYT: 0
-78   Lessons in Chemistry                    2022   5         Humor                    Weeks  NYT: 0
-79   Yellow Submarine                        1966   8         pop                      Not a Top 40 hit
+8    Hidden Figures                          -1     -1        126                      Stars: Octavia Spencer Janelle Monae 
+9    Mr. Holland's Opus                      1995   8         Drama/Musical            Stars: Richard Dreyfuss Jay Thomas Glenne Headly 
+10   To Kill a Mockingbird                   1960   8         Southern Gothic Fiction  Weeks  NYT: 4
+11   Hamlet                                  1600   4         Tragedy                  Weeks  NYT: 5
+12   Animal Farm                             1945   8         Allegory                 Weeks  NYT: 6
+13   The Great Gatsby                        1925   7         Modernist novel          Weeks  NYT: 10
+14   The Catcher in the Rye                  1951   3         Coming of Age            Weeks  NYT: 9
+15   Lord of the Flies                       1954   6         Adventure                Weeks  NYT: 3
+16   Of Mice and Men                         1937   5         Tragedy                  Weeks  NYT: 15
+17   Blade Runner 2049                       2017   9         Sci-Fi                   Stars: Ryan Gosling Harrison Ford 
+18   Jurassic Park                           1993   8         Sci-Fi                   Stars: Sam Neill Jeff Goldblum 
+19   Dune                                    2021   7         Sci-Fi                   Stars: Timothee Chalamet Zendaya 
+20   So I Married an Axe Murderer            1993   15        Comedy                   Stars: Mike Meyers Nancy Travis 
+21   Fight Club                              1999   10        Drama                    Stars: Brad Pitt Edward Norton 
+22   Percy Jackson and the Lightning Thief   2010   2         Fantasy                  Stars: Logan Lerman Alexandra Daddario 
+23   The Grand Budapest Hotel                2014   9         Adventure                Stars: Ralph Fiennes Saoirse Ronan 
+24   Superman                                1978   8         Sci-Fi                   Stars: Christopher Reeve Gene Hackman Margo Kidder 
+25   Spirited Away                           2002   8         Fantasy                  Stars: Rumi Hiiragi Miyu Irino 
+26   Gone Girl                               2014   10        Thriller/Mystery         Stars: Ben Affleck Rosamund Pike 
+27   Moonlight                               2016   10        Drama                    Stars: Mahershala Ali Naomi Harris 
+28   The Wolf of Wallstreet                  2013   10        Comedy                   Stars: Leonardo DiCaprio Jonah Hill 
+29   Maximum Overdrive                       1986   5         Horror                   Stars: Emilio Estivez Pat Hingle Laura Harrington 
+30   Crime and Punishment                    1866   7         Crime Fiction            Weeks  NYT: 15
+31   House of Leaves                         2000   9         Horror                   Weeks  NYT: 0
+32   I Can Teach You to Be Rich              2009   8         Self Help                Weeks  NYT: 16
+33   Neuromancer                             1984   10        Cyberpunk                Weeks  NYT: 16
+34   Percy Jackson and the Last Olympian     2009   9         Fantasy                  Weeks  NYT: 15
+35   Six of Crows                            2015   10        Fantasy                  Weeks  NYT: 20
+36   The Alchemist                           1993   9         Adventure                Weeks  NYT: 10
+37   The Goldfinch                           2013   10        Suspense                 Weeks  NYT: 1
+38   The Hunger Games                        2008   7         Action                   Weeks  NYT: 15
+39   The Music of Erich Zann                 1921   10        Horror                   Weeks  NYT: 2
+40   Watchmen                                1987   8         Sci-Fi                   Weeks  NYT: 0
+41   Way of kings                            2010   10        Fantasy                  Weeks  NYT: 5
+42   All Too Well                            2012   10        Pop                      Top 40 hit
+43   Baba Yetu                               2025   10        Choir                    Not a Top 40 hit
+44   Ball if I want to                       2021   10        Rap                      Top 40 hit
+45   Blinding Lights                         -1     10        9                        Not a Top 40 hit
+46   Call out my name                        2021   8         R&B                      Not a Top 40 hit
+47   Yesterday                               1965   8         Rock                     Top 40 hit
+48   Compass                                 2018   8         Indie                    Top 40 hit
+49   Easy on me                              2021   6         pop                      Not a Top 40 hit
+50   Figures                                 2018   8         R&B                      Not a Top 40 hit
+51   First Love / Late Spring                2014   10        Indie                    Top 40 hit
+52   Frozen                                  2017   5         R&B                      Top 40 hit
+53   Garden Grove                            1998   10        Reggae                   Not a Top 40 hit
+54   Hey Jude                                1968   10        Rock                     Top 40 hit
+55   Har dil ki ava                          2014   10        Slow music               Top 40 hit
+56   Holy Ghost                              2015   8         Choir                    Top 40 hit
+57   kal ho na ho                            2009   9         Punajbi                  Not a Top 40 hit
+58   Let It Be                               1970   9         Rock                     Top 40 hit
+59   Monks                                   2012   10        Pop                      Top 40 hit
+60   More Than a Woman                       1977   9         Pop                      Not a Top 40 hit
+61   nasha ha                                2010   8         normal one               Not a Top 40 hit
+62   Out Tha Mud                             2015   10        Rap                      Not a Top 40 hit
+63   Phali dafa                              2017   9         urdu                     Not a Top 40 hit
+64   Sea Dragon                              2018   9         Math Rock                Top 40 hit
+65   Slacker                                 2002   10        Rap                      Top 40 hit
+66   Something                               2015   10        R&B - Jazz               Top 40 hit
+67   Stayin' Alive                           1979   10        Pop                      Not a Top 40 hit
+68   Sweet Caroline                          1969   10        Rock                     Top 40 hit
+69   Sweet Life                              2012   8         Pop                      Not a Top 40 hit
+70   Thank u - next                          2019   8         Pop                      Top 40 hit
+71   The Mountain Top                        2021   10        Video Game Soundtrack    Not a Top 40 hit
+72   Tik Tok                                 2009   9         Pop                      Top 40 hit
+73   Tranquility Base Hotel & Casino         2018   10        Rock                     Top 40 hit
+74   Wake Up                                 2015   9         Alternative              Not a Top 40 hit
+75   Hidden Figures                          2016   9         Drama                    Stars: 
+76   Africa                                  1982   7         rock                     Not a Top 40 hit
+77   Strawberry Fields Forever               1967   9         pop                      Not a Top 40 hit
+78   Strawberry Fields Forever               1967   9         pop                      Not a Top 40 hit
+79   Bohemian Rhapsody                       1975   8         rock                     Not a Top 40 hit
+80   Close Encounters                        1997   5         Science Fiction          Weeks  NYT: 0
+81   Close Encounters                        1997   5         Science Fiction          Weeks  NYT: 0
+82   Lessons in Chemistry                    2022   5         Humor                    Weeks  NYT: 0
+83   Yellow Submarine                        1966   8         pop                      Not a Top 40 hit
 
 
 YOUR MEDIA LIBRARY
-Total Counts - Movies: 22, Books: 21, Songs: 36
+Total Counts - Movies: 23, Books: 22, Songs: 38

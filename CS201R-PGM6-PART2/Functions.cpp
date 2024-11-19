@@ -33,7 +33,7 @@ bool checkIfDigits(const string& str) {
     }
     return true;
 }
-int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
+int readMediaList(istream& inFile, ostream& outFile, ostream& outErr, vector<Media*>& mediaLib) {
     string line;
     int lineNum = 0;
 
@@ -64,7 +64,8 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
 
         // Ensure there's data after the year field
         if (ss.eof()) {
-            outFile << "Error on line " << lineNum << ": Missing stars information after year\n";
+            outErr << "Error on line " << lineNum << " - Missing stars information after year: " << title << " " << creator << " " << ratingStr << " " << genre << " "
+                << lengthStr << " " << yearStr << endl;
             continue;  // Skip the line if there's no stars information
         }
 
@@ -102,7 +103,8 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
 
         if (typeStr.empty() || title.empty() || creator.empty() || genre.empty()) {
             valid = false;
-            outFile << "Error on line " << lineNum << ": Missing required fields\n";
+            outFile << "Error on line " << lineNum << ": Missing required fields\n" << title << " " << creator << " " << ratingStr << " " << genre << " "
+                << lengthStr << " " << yearStr;
         }
 
         if (!ratingStr.empty() && !isdigit(ratingStr[0])) valid = false;
@@ -118,13 +120,14 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
         }
         catch (const exception&) {
             valid = false;
-            outFile << "Error on line " << lineNum << ": Invalid numeric data\n";
+            outFile << "Error on line " << lineNum << " - Invalid numeric data: " << title << " " << creator << " " << ratingStr << " " << genre << " "
+                << lengthStr << " " << yearStr << endl;
         }
-
+        /*
         if (!valid) {
             outFile << "Error on line " << lineNum << ": Invalid data, skipping line\n";
             continue;
-        }
+        }*/
 
         // Parse stars for movies
         vector<string> starsVec;
@@ -157,15 +160,17 @@ int readMediaList(istream& inFile, ostream& outFile, vector<Media*>& mediaLib) {
     return mediaLib.size();
 }
 
+
+
 // Processes the file to read media list
-void processFile(const string& filename, ostream& outFile, vector<Media*>& mediaLib) {
+void processFile(const string& filename, ostream& outFile, ostream& outErr, vector<Media*>& mediaLib) {
     ifstream inFile(filename);
     if (!inFile) {
         outFile << "Error: Could not open file " << filename << endl;
         return;
     }
 
-    int validEntries = readMediaList(inFile, outFile, mediaLib);
+    int validEntries = readMediaList(inFile, outFile, outErr, mediaLib);
     inFile.close();
 }
 /*
@@ -321,7 +326,7 @@ void logError(const std::string& message) {
         std::cerr << "Unable to open error log file." << std::endl;
     }
 }
-void processCommands(const std::string& filename, std::ofstream& outFile, std::vector<Media*>& mediaLib) {
+void processCommands(const std::string& filename, std::ofstream& outFile, std::ofstream& outErr, std::vector<Media*>& mediaLib) {
     std::ifstream commandFile(filename);
     std::string commandLine;
     std::cout << "Media library size: " << mediaLib.size() << std::endl;
@@ -378,7 +383,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     }
                 }
                 else {
-                    outFile << "Invalid rating: " << token << "\n";
+                    outErr << "Invalid rating: " << token << "\n";
                 }
             }
             else {
@@ -412,7 +417,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     if (filterRating >= 1 && filterRating <= 10) {
                         outFile << "\n\nMOVIE LIST WITH RATING >= " << filterRating << ":\n";
                         outFile << std::left << std::setw(5) << "#" << std::setw(30) << "Title" << std::setw(8) << "Year" << std::setw(10) << "Rating" << "Stars\n";
-                        outFile << std::string(85, '-') << "\n";  // Print a line separator
+                        outFile << std::string(115, '-') << "\n";  // Print a line separator
                         bool found = false;
                         for (size_t i = 0; i < mediaLib.size(); ++i) {
                             const auto& media = mediaLib[i];
@@ -443,14 +448,14 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                         }
                     }
                     else {
-                        cerr << "Invalid rating for command M: " << token << " (must be between 1 and 10)\n";
+                        outErr << "Invalid rating for command M: " << token << " (must be between 1 and 10)\n";
                     }
                 }
                 else {
                     // Treat token as a genre if it’s not numeric
                     outFile << "\n\nMOVIE LIST FOR GENRE: " << token << "\n";
                     outFile << std::left << std::setw(5) << "#" << std::setw(30) << "Title" << std::setw(8) << "Year" << std::setw(10) << "Rating" << "Stars\n";
-                    outFile << std::string(85, '-') << "\n";  // Print a line separator
+                    outFile << std::string(115, '-') << "\n";  // Print a line separator
 
                     bool found = false;
                     for (size_t i = 0; i < mediaLib.size(); ++i) {
@@ -485,7 +490,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
             else {
                 outFile << "\n\nALL MOVIES:\n";
                 outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(8) << "Year" << std::setw(10) << "Rating" << "Stars\n";
-                outFile << std::string(85, '-') << "\n";  // Print a line separator
+                outFile << std::string(115, '-') << "\n";  // Print a line separator
 
                 bool found = false;
                 for (size_t i = 0; i < mediaLib.size(); ++i) {
@@ -528,7 +533,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                         outFile << "\n\nBOOK LIST WITH RATING >= " << filterRating << ":\n";
                         outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(10) << "Rating" <<
                             std::setw(10) << "Weeks on NYT" << "\n";
-                        outFile << std::string(65, '-') << "\n";  // Print a line separator
+                        outFile << std::string(115, '-') << "\n";  // Print a line separator
 
                         bool found = false;
                         for (size_t i = 0; i < mediaLib.size(); ++i) {
@@ -554,8 +559,8 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                         }
                     }
                     else {
-                        cerr << "Invalid rating for command B: " << token << " (must be between 1 and 10)\n";
-                        outFile << "\n\nInvalid rating for command B: " << token << " (must be between 1 and 10)\n";
+                        outErr << "Invalid rating for command B: " << token << " (must be between 1 and 10)\n";
+                       // outFile << "\n\nInvalid rating for command B: " << token << " (must be between 1 and 10)\n";
 
                     }
                 }
@@ -564,7 +569,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     outFile << "\n\nBOOK LIST FOR GENRE: " << token << "\n";
                     outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(10) << "Rating" << 
                         std::setw(10) << "Weeks on NYT" << "\n";
-                    outFile << std::string(60, '-') << "\n";  // Print a line separator
+                    outFile << std::string(115, '-') << "\n";  // Print a line separator
 
 
                     bool found = false;
@@ -585,7 +590,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                         }
                     }
                     if (!found) {
-                        outFile << "No movies found with genre: " << token << ".\n";
+                        outErr << "No movies found with genre: " << token << ".\n";
                     }
                 }
             }
@@ -593,7 +598,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 outFile << "\n\nALL BOOKS: \n";
                 outFile << std::left << std::setw(5) << "#" << std::setw(40) << "Title" << std::setw(7) << "Year" << std::setw(10) << "Rating" <<
                     std::setw(10) << "Weeks on NYT" << "\n";
-                outFile << std::string(60, '-') << "\n";  // Print a line separator
+                outFile << std::string(115, '-') << "\n";  // Print a line separator
 
 
                 bool found = false;
@@ -657,11 +662,11 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                             }
                         }
                         if (!found) {
-                            outFile << "No songs found with rating >= " << filterRating << ".\n";
+                            outErr << "No songs found with rating >= " << filterRating << ".\n";
                         }
                     }
                     else {
-                        cerr << "Invalid rating for command S: " << token << " (must be between 1 and 10)\n";
+                        outErr << "Invalid rating for command S: " << token << " (must be between 1 and 10)\n";
                     }
                 }
                 else {
@@ -673,7 +678,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                         << std::setw(20) << "Rating"
                         << std::setw(25) << "Genre"
                         << "Top 40\n";
-                    outFile << std::string(80, '-') << "\n";
+                    outFile << std::string(115, '-') << "\n";
 
                     bool found = false;
                     for (size_t i = 0; i < mediaLib.size(); ++i) {
@@ -705,7 +710,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                     << std::setw(20) << "Rating"
                     << std::setw(15) << "Genre"
                     << "Top 40\n";
-                outFile << std::string(80, '-') << "\n";
+                outFile << std::string(115, '-') << "\n";
 
                 bool found = false;
                 for (size_t i = 0; i < mediaLib.size(); ++i) {
@@ -750,11 +755,11 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 }
 
                 if (!found) {
-                    outFile << "Error: Movie titled '" << movieTitle << "' not found in the library.\n";
+                    outErr << "Error: Movie titled '" << movieTitle << "' not found in the library.\n";
                 }
             }
             else {
-                outFile << "Error: Missing movie title for command L.\n";
+                outErr << "Error: Missing movie title for command L.\n";
             }
         }
 
@@ -781,12 +786,12 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 }
 
                 if (!found) {
-                    outFile << "No movies found featuring '" << starName << "'.\n";
+                    outErr << "No movies found featuring '" << starName << "'.\n";
                 }
                 outFile << "\n"; // Add spacing for better readability
             }
             else {
-                outFile << "Error: Missing star name for command F.\n";
+                outErr << "Error: Missing star name for command F.\n";
             }
         }
 
@@ -807,12 +812,19 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                         for (const auto& star : movie->getStars()) {
                             if (star == name) {
                                 if (!found) {
-                                    outFile << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
-                                    outFile << "YOUR LIST CONTAINING " << name << "\n\n";
-                                    outFile << "#           TITLE                           YEAR    RATING      GENRE                      OTHER FIELDS\n";
+                                    outFile << "YOUR LIST CONTAINING " << name << endl;
+                                 
+                                   
+                                    outFile << std::left << std::setw(5) << "#"
+                                        << std::setw(25) << "Title"
+                                        << std::setw(7) << "Year"
+                                        << std::setw(20) << "Rating"
+                                        << std::setw(15) << "Genre"
+                                        << std::setw(15) << "Other Fields" << endl
+                                        << std::string(120, '-') << "\n";
                                 }
-                                outFile  << "  " << movie->getTitle() << "    " << movie->getYearReleased() << "    "
-                                    << movie->getRating() << "      " << movie->getGenre() << "          Stars: ";
+                                outFile  << std::setw(30) << movie->getTitle() << std::setw(10) << movie->getYearReleased() << std::setw(16)
+                                    << movie->getRating() << std::setw(15) << movie->getGenre() << std::setw(10);
                                 for (const auto& s : movie->getStars()) {
                                     outFile << s << " ";
                                 }
@@ -825,11 +837,11 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 }
 
                 if (!found) {
-                    outFile << "Error: No media containing the name '" << name << "' found in the library.\n";
+                    outErr << "Error: No media containing the name '" << name << "' found in the library.\n";
                 }
             }
             else {
-                outFile << "Error: Missing name for command K.\n";
+                outErr << "Error: Missing name for command K.\n";
             }
         }
 
@@ -857,19 +869,19 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::v
                 year = std::stoi(yearStr);
             }
             catch (const std::invalid_argument&) {
-                cerr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
+                outErr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
                     << lengthStr << " " << yearStr << ": Invalid numeric value\n";
                 continue;
             }
             catch (const std::out_of_range&) {
-                cerr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
+                outErr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
                     << lengthStr << " " << yearStr << ": Numeric value out of range\n";
                 continue;
             }
 
             // Validate input values
             if (rating <= 0 || rating > 10 || length <= 0 || year < 1000 || year > 2024) {
-                cerr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
+                outErr << "Error with: " << title << " " << creator << " " << ratingStr << " " << genre << " "
                     << lengthStr << " " << yearStr << ": Invalid value in rating, length, or year\n";
             }
 

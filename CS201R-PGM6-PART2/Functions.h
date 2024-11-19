@@ -11,11 +11,20 @@ using namespace std;
 bool isDigits(string str1);
 bool checkIfDigits(const string& str);
 
-int  readMediaList(istream& i, ostream& o, vector<Media*>& m);
+//int  readMediaList(istream& i, ostream& o, vector<Media*>& m);
+int readMediaList(istream& inFile, ostream& outFile, ostream& outErr, vector<Media*>& mediaLib);
+
 //void processCommand(const string& command, const vector<Media*>& mediaLib, ostream& report);
 
 //void processCommands(const std::string& filename, ofstream& outFile, vector<Media*>& mediaLib);
-void processCommands(const std::string & filename, std::ofstream & outFile, std::vector<Media*>&mediaLib);
+//void processCommands(const std::string & filename, std::ofstream & outFile, std::vector<Media*>&mediaLib);
+
+
+void processCommands(const std::string& filename, std::ofstream& outFile, std::ofstream& outErr, std::vector<Media*>& mediaLib);
+
+void processFile(const string& filename, ostream& outFile, ostream& outErr, vector<Media*>& mediaLib);
+
+
 
 void printAllMedia(ostream& outFile, const vector<Media*>& mediaLib);
 void printMovies(ostream& outFile, const vector<Media*>& mediaLib);

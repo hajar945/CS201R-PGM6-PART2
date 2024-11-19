@@ -36,7 +36,7 @@ int main() {
 
     // Read data into myLib
     try {
-        readMediaList(inList, outErr, myLib);
+        readMediaList(inList,outFile, outErr, myLib);
     }
     catch (const ifstream::failure& e) {
         cerr << "Error reading from mediaList.txt: " << e.what() << endl;
@@ -48,7 +48,7 @@ int main() {
     string line;
     while (getline(commandsFile, line)) {
         // processCommand(line, myLib, outFile, outErr); // Ensure this matches the prototype in Functions.h
-        processCommands("mediaCommands.txt", outFile, myLib);
+        processCommands("mediaCommands.txt", outFile, outErr, myLib);
         return 0;
 
     }
