@@ -44,7 +44,7 @@ int readMediaList(istream& inFile, ostream& outFile, ostream& outErr, vector<Med
 
     while (getline(inFile, line)) {
         lineNum++;
-        std::cout << "Processing line " << lineNum << ": " << line << std::endl;
+        std::cout << "Processing line " << lineNum << ": " << line <<  std::endl;
 
         if (line.empty()) continue;
 
@@ -120,7 +120,7 @@ int readMediaList(istream& inFile, ostream& outFile, ostream& outErr, vector<Med
         }
         catch (const exception&) {
             valid = false;
-            outFile << "Error on line " << lineNum << " - Invalid numeric data: " << title << " " << creator << " " << ratingStr << " " << genre << " "
+            outErr << "Error on line " << lineNum << " - Invalid numeric data: " << title << " " << creator << " " << ratingStr << " " << genre << " "
                 << lengthStr << " " << yearStr << endl;
         }
         /*
@@ -129,22 +129,45 @@ int readMediaList(istream& inFile, ostream& outFile, ostream& outErr, vector<Med
             continue;
         }*/
 
+        // Additional validation for rating
+        if (rating <= 0 || rating > 10) {
+            outErr << "Error on line " << lineNum << " - Invalid rating (" << rating << ") for '" << title << "'\n";
+            continue;
+        }
+        if (year < 1920 || year > 2024) {
+            outErr << "Error on line " << lineNum << " - Invalid year (" << rating << ") for '" << title << "'\n";
+            continue;
+        }
+
         // Parse stars for movies
         vector<string> starsVec;
-        if (typeStr == "M" && !starsStr.empty()) {
-            istringstream starStream(starsStr);
-            string star;
-            while (getline(starStream, star, ',')) {
-                trim(star);
-                if (!star.empty()) starsVec.push_back(star);
+        if (typeStr == "M") {
+            if (!starsStr.empty()) {
+                istringstream starStream(starsStr);
+                string star;
+                while (getline(starStream, star, ',')) {
+                    trim(star);
+                    if (!star.empty()) starsVec.push_back(star);
+                }
             }
+            else {
+                // Handle missing stars case
+                starsVec.push_back("No stars listed");
+            }
+
             // Debugging output for stars
             std::cout << "Debug - Movie: " << title << ", Stars: ";
-            for (const auto& star : starsVec) {
-                std::cout << star << " ";
+            if (starsVec.empty()) {
+                std::cout << "No stars listed";
+            }
+            else {
+                for (const auto& star : starsVec) {
+                    std::cout << star << " ";
+                }
             }
             std::cout << std::endl;
         }
+
 
         // Create media item
         Media* mediaItem = createMedia(typeStr[0], title, creator, rating, genre, length, year, starsVec, weeksNYT, top40);
@@ -278,6 +301,12 @@ void addNewMedia(ostream& outFile, const string& type, const string& title, cons
     if ((mediaType == 'M' || mediaType == 'B' || mediaType == 'S') &&
         rating > 0 && rating <= 10 && length > 0 && year >= 1920 && year <= 2024) {
 
+        // Validate that the required fields (like creator) are present
+        if (mediaType == 'M' && name.empty()) { // Movie requires a valid creator
+            outFile << "Error: Missing creator for movie '" << title << "'\n";
+            return; // Skip adding this entry to mediaLib
+        }
+
         // Create a new media item based on the type
         Media* mediaItem = nullptr;
 
@@ -301,7 +330,7 @@ void addNewMedia(ostream& outFile, const string& type, const string& title, cons
     else {
         // Handle invalid data cases with detailed output
         if (rating <= 0 || rating > 10) {
-            cerr << "Error: Invalid rating for media item '" << title << "'\n";
+            cerr << "ERROR: INVALID RATING\n" << title << "'\n";
         }
         if (length <= 0) {
             cerr << "Error: Invalid length for media item '" << title << "'\n";
@@ -394,11 +423,12 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::o
                 outFile << std::string(120, '-') << "\n";  // Print a line separator
 
                 for (size_t i = 0; i < mediaLib.size(); ++i) {
+                    //DEBUG OUTPUT
                     const auto& media = mediaLib[i];
                     std::cout << "Media " << (i + 1) << ": "
                         << media->getTitle() << ", "
                         << media->getYearReleased() << ", "
-                        << media->getRating() << std::endl;
+                        << media->getRating() << ", " << media->getOtherFields() << ", " << media->getName() << std::endl;
 
                     outFile << std::left << std::setw(5) << (i + 1)
                         << std::setw(40) << media->getTitle()
@@ -742,15 +772,23 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::o
                 bool found = false; // To track if the movie is found
                 for (const auto& media : mediaLib) {
                     if (media->getType() == 'M' && media->getTitle() == movieTitle) {
-                        // Cast media to Movie to access getStars()
-                        Movie* movie = static_cast<Movie*>(media);
+                        // Attempt to cast the base class pointer to a Movie pointer
+                        Movie* movie = dynamic_cast<Movie*>(media);
 
-                        outFile << "\n\nTHE STARS OF THE MOVIE " << movie->getTitle() << " ARE:\n";
-                        for (const auto& star : movie->getStars()) {
-                            outFile << star << "\n";
+                        if (movie != nullptr) {  // Successful cast, meaning it's a Movie object
+                            // Format the output for the stars
+                            outFile << "\n\nTHE STARS OF THE MOVIE " << movie->getTitle() << " ARE:\n";
+                            for (const auto& star : movie->getStars()) {
+                                outFile << star << "\n";  // Each star on a new line
+                            }
+                            outFile << "\n";
+                            found = true;
+                            break;
                         }
-                        found = true;
-                        break;
+                        else {
+                            // Error: The media is not a valid movie object.
+                            outErr << "Error: The media with title '" << movieTitle << "' is not a valid movie object.\n";
+                        }
                     }
                 }
 
@@ -763,37 +801,6 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::o
             }
         }
 
-        if (command == "F") {
-            std::string starName;
-            if (std::getline(commandStream, starName)) {
-                std::cout << "Searching for movies featuring: " << starName << std::endl;
-
-                bool found = false; // To track if the star is found in any movie
-                outFile << starName << " appears in the following movie(s):\n";
-
-                for (const auto& media : mediaLib) {
-                    if (media->getType() == 'M') {
-                        // Cast media to Movie to access getStars()
-                        Movie* movie = static_cast<Movie*>(media);
-                        const auto& stars = movie->getStars();
-
-                        // Check if the star is in the list of stars
-                        if (std::find(stars.begin(), stars.end(), starName) != stars.end()) {
-                            outFile << movie->getTitle() << "\n";
-                            found = true;
-                        }
-                    }
-                }
-
-                if (!found) {
-                    outErr << "No movies found featuring '" << starName << "'.\n";
-                }
-                outFile << "\n"; // Add spacing for better readability
-            }
-            else {
-                outErr << "Error: Missing star name for command F.\n";
-            }
-        }
 
         if (command == "K") {
             std::string name;  // Name to search for
@@ -804,30 +811,107 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::o
 
                 // Check for media in mediaLib that matches the name
                 for (const auto& media : mediaLib) {
-                    // Assume we are looking for stars, directors, or artists
                     if (media->getType() == 'M') {  // If it's a movie
                         Movie* movie = static_cast<Movie*>(media);
 
-                        // Check if any star or artist in the movie matches the name
+                        // Check if any star in the movie matches the name
                         for (const auto& star : movie->getStars()) {
                             if (star == name) {
                                 if (!found) {
-                                    outFile << "YOUR LIST CONTAINING " << name << endl;
-                                 
-                                   
-                                    outFile << std::left << std::setw(5) << "#"
-                                        << std::setw(25) << "Title"
-                                        << std::setw(7) << "Year"
-                                        << std::setw(20) << "Rating"
-                                        << std::setw(15) << "Genre"
-                                        << std::setw(15) << "Other Fields" << endl
+                                    outFile << "\n\nYOUR LIST CONTAINING " << name << "\n";
+
+                                    // Output table header for Movies
+                                    outFile << std::setw(35) << "TITLE"
+                                        << std::setw(7) << "YEAR"
+                                        << std::setw(10) << "RATING"
+                                        << std::setw(15) << "GENRE"
+                                        << std::setw(25) << "OTHER FIELDS" << "\n"
                                         << std::string(120, '-') << "\n";
                                 }
-                                outFile  << std::setw(30) << movie->getTitle() << std::setw(10) << movie->getYearReleased() << std::setw(16)
-                                    << movie->getRating() << std::setw(15) << movie->getGenre() << std::setw(10);
-                                for (const auto& s : movie->getStars()) {
-                                    outFile << s << " ";
+
+                                // Movie data output
+                                outFile << std::setw(35) << movie->getTitle()
+                                    << std::setw(7) << movie->getYearReleased()
+                                    << std::setw(10) << movie->getRating()
+                                    << std::setw(15) << movie->getGenre()
+                                    << std::setw(15) << movie->getOtherFields();
+
+
+                            
+                                outFile<< "\n";
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else if (media->getType() == 'S') {  // If it's a song
+                        Song* song = static_cast<Song*>(media);
+
+                        // Check if any artist in the song matches the name
+                        for (const auto& artist : song->getName()) {
+                            if (song->getName() == name) {
+                                if (!found) {
+                                    outFile << "\n\nYOUR LIST CONTAINING " << name << "\n";
+
+                                    // Output table header for Songs
+                                    outFile  << std::setw(35) << "TITLE"
+                                        << std::setw(7) << "YEAR"
+                                        << std::setw(10) << "RATING"
+                                        << std::setw(15) << "GENRE"
+                                        << std::setw(25) << "OTHER FIELDS" << "\n"
+                                        << std::string(120, '-') << "\n";
                                 }
+
+                                // Song data output
+                                outFile  << std::setw(35) << song->getTitle()
+                                    << std::setw(7) << song->getYearReleased()
+                                    << std::setw(10) << song->getRating()
+                                    << std::setw(15) << song->getGenre()
+                                    << std::setw(15) << song->getOtherFields();
+
+                                // Output song artists
+                                if (song->getName().empty()) {
+                                    outFile << std::setw(25) << "---";  // If no artists, print "---"
+                                }
+                               
+
+                                outFile << "\n";
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else if (media->getType() == 'B') {  // If it's a book
+                        Book* book = static_cast<Book*>(media);
+
+                        // Check if any author in the book matches the name
+                        for (const auto& author : book->getName()) {
+                            if (book->getName() == name) {
+                                if (!found) {
+                                    outFile << "\n\nYOUR LIST CONTAINING " << name << "\n";
+
+                                    // Output table header for Books
+                                    outFile  << std::setw(35) << "TITLE"
+                                        << std::setw(7) << "YEAR"
+                                        << std::setw(10) << "RATING"
+                                        << std::setw(20) << "GENRE"
+                                        << std::setw(25) << "WEEKS ON NYT" << "\n"
+                                        << std::string(120, '-') << "\n";
+                                }
+
+                                // Book data output
+                                outFile << std::setw(35) << book->getTitle()
+                                    << std::setw(7) << book->getYearReleased()
+                                    << std::setw(10) << book->getRating()
+                                    << std::setw(25) << book->getGenre()
+                                    << std::setw(15) << book->getWeeks();
+
+
+                                // Output book authors
+                                if (book->getName().empty()) {
+                                    outFile << std::setw(25) << "---";  // If no authors, print "---"
+                                }
+                              
                                 outFile << "\n";
                                 found = true;
                                 break;
@@ -844,6 +928,7 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::o
                 outErr << "Error: Missing name for command K.\n";
             }
         }
+
 
 
 
@@ -896,12 +981,13 @@ void processCommands(const std::string& filename, std::ofstream& outFile, std::o
         else if (command == "T") {
             outFile << "\n\nYOUR MEDIA LIBRARY\n";
             printTotals(outFile, mediaLib);  // Print total counts for each type
-        
+
         }
 
     }
 
     commandFile.close();
+
 }
 
 /*
